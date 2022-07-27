@@ -1,0 +1,206 @@
+.top {
+    text-align: right;
+    color: #000;
+    font-size: 15px;
+    margin: 35px 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    .btn {
+        background: #3E3D53;
+        color: #fff;
+        text-transform: capitalize;
+        font-size: 15px;
+        margin-left: 15px;
+        height: 45px;
+        padding: 0 20px;
+        border-radius: 6px;
+    }
+}
+
+section.register {
+    overflow: hidden;
+    width: 100%;
+    background: #F4F1EA;
+    .col-lg-6{
+        height: 100vh;
+        .register-bg{
+            background: url(../../../assets/image/login-bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;    
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            img {
+                width: 600px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+        .card {
+            width: 73%;
+            border: none;
+            background: #333333;
+            padding: 33px 23px 40px;           
+            margin: 86px 0 40px;
+            border-radius: 0;
+            box-shadow: 0 15px 17px rgb(0 0 0 / 16%);
+            .head {
+                color: #fff;
+            }
+        }
+    }
+    
+    .head {
+        margin: 0 0 20px;
+        h2{
+            font-size: 33px;
+            margin: 0;
+        }
+        p {
+            opacity: 40%;
+            margin: 15px 0 0;
+            font-size: 16px;
+        }
+    }
+    
+}
+
+
+
+
+
+
+.error-modal .modal-body {
+    text-align: center;
+    padding: 35px 35px 25px;
+}
+
+.error-modal .modal-body p.modal-title {
+    font-size: 20px;
+    color: #403E4A;
+    margin: 15px auto 0;
+    width: 80%;
+    display: block;
+}
+
+.modal-footer {
+    border: none;
+    padding-top: 0 !important;
+    padding: 30px;
+}
+
+.error-modal .modal-footer button {
+    margin: 0 auto;
+    min-width: 118px;
+    height: 45px;
+    text-transform: uppercase;
+    background: #363636;
+    border: none;
+}
+
+.modal-header {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    border: none;
+    color: #fff;
+    line-height: 33px;
+    padding: 0;
+}
+
+.modal-header button {
+    color: #fff !important;
+    box-shadow:none !important;
+    width: auto;
+    opacity: 1;
+    background: transparent;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: normal;
+    height: 24px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 8px;
+}
+
+.number span {
+    margin-right: 15px;
+}
+
+.number span select.form-control {
+    width: auto;
+    padding: 0 15px;
+    padding-right: 35px;
+    background-position-x: 78%;
+    background-size: 11px;
+}
+
+span.or {
+    text-align: center;
+    width: 100%;
+    color: #e8f4ff;
+    text-transform: uppercase;
+    font-size: 15px;
+    display: block;
+    padding: 12px 0 15px;
+    position: relative;
+}
+
+span.or:after {
+    content: '';
+    width: 45%;
+    position: absolute;
+    height: 1px;
+    background: #717171;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+span.or:before {
+    content: '';
+    width: 45%;
+    position: absolute;
+    height: 1px;
+    background: #717171;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+
+form{
+    margin: 0;
+    input[type="submit"].btn,input[type="button"].btn {
+        margin: 0 auto;
+        min-width: 100%;
+        background: #6b6b6b;
+        height: 48px;
+    }
+}
+
+.btns-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    input.btn {
+        min-width: 160px !important;
+        margin: 0 !important;
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    
+    section.register .col-lg-6 .register-bg img{width: 100%;}
+    section.register .col-lg-6 .register-bg{height: 50vh;}
+    section.register .col-lg-6{height: auto;}
+    section.register .col-lg-6 .card{margin: 45px 0 60px; width: 85%;}
+    section.register .head h2{font-size: 28px;}
+
+}

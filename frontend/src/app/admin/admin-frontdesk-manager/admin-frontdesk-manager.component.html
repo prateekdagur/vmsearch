@@ -1,0 +1,173 @@
+
+<section class="home">
+  
+  <div class="container-fluid">
+    <div class="col-lg-12 col-sm-12 col-12">
+    <div class="head">
+      <h3>Front Desk Managers List</h3>
+    </div>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sr.No.</th>
+              <th scope="col">Name</th>
+                <th scope="col">Hotel Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">position</th>
+                <th scope="col">employee since</th>
+                <th scope="col">Action</th>
+              </tr>
+            <tr class="sub-head">
+              <th scope="col"></th>
+              <th scope="col"> 
+                <input
+                type="text"
+                (keyup)="onChangeName($event)"
+                placeholder="Type Title"
+                class="form-control"
+                />
+              </th>
+              <th scope="col"> 
+                 <input
+                type="text"
+                (keyup)="onChangeHotelName($event)"
+                placeholder="Type Hotel Name"
+                class="form-control"
+                />
+              </th>
+              <th scope="col">  
+                <input
+                type="text"
+                (keyup)="onChangeUserName($event)"
+                placeholder="Type Username"
+                class="form-control"
+                />
+              </th>
+              <th scope="col">
+                <input
+                type="text"
+                (keyup)="onChangePosition($event)"
+                placeholder="Type Position"
+                class="form-control"
+                />
+              </th>
+              <th scope="col">
+                <input
+                type="text"
+                (keyup)="onChangeEmpSince($event)"
+                placeholder="Type Employee Since"
+                class="form-control"
+                />
+              </th>
+              <th scope="col">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let row of frontDeskList
+                  | paginate
+                    : {
+                        itemsPerPage: itemsperPage,
+                        currentPage: p,
+                        totalItems: totalItem
+                      };
+                let i = index
+              "
+            >
+          <td>{{(this.itemsperPage*(this.p-1)+(i+1))}}</td>
+          <td>{{row.frontDeskFullName}}</td>
+          <td>{{row.hotel}}</td>
+          <td>{{row.frontDeskUserName}}</td>
+          <td>{{row.frontDeskPosition}}</td>
+          <td>{{row.frontDeskEmpSince}}</td>
+          <td> <button
+            type="button"
+            name="submit"
+            class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModaldelete"
+            (click)="deleteId(row?._id)"
+            value="Submit"
+          >
+            Delete
+          </button></td>
+
+            </tr>
+            <tr *ngIf="frontDeskList.length === 0">
+              <td colspan="6">No Record Found</td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls
+          *ngIf="frontDeskList"
+          (pageChange)="pageChangeEvent($event)"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 
+<div
+  class="modal fade"
+  id="exampleModaldelete"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content  text-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <h5>Do you want to soft delete the frontdesk manager?</h5>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+        type="button"
+        class="btn btn-primary"
+        (click)="softDeleteFrontendDeskMan(deleteFrontDeskManId)"
+        data-bs-dismiss="modal"
+      >
+      Confirm
+      </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- modal -->
+<div class="modal fade error-modal" id="exampleModaldelete" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+          <img src="../../../assets/image/cross-modal.svg" alt="">
+        <p class="modal-title">Are you sure you want delete this frontdesk manager?</p>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary black" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="softDeleteFrontendDeskMan(deleteFrontDeskManId)" data-bs-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+

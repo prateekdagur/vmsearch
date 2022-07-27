@@ -1,0 +1,108 @@
+<section class="header">
+    <div class="container">
+        <a routerLink="/home">
+            <img src="../../../assets/image/logo.svg" alt="">
+        </a>
+    </div>
+</section>
+
+<section class="payment">
+    <div class="container">
+        <h4>Choose Your Subscription</h4>
+        <div class="row">
+
+            <div class="col-lg-7 col-12">
+                <div class="card">
+                    <form [formGroup]="formDetails" (ngSubmit)="getCardToken()">
+                        <div class="form-group">
+                            <label>Card Holder's Name</label>
+                            <input type="text" formControlName="name" placeholder="Enter Name..." class="form-control">
+                            <div *ngIf="formDetails.get('name').invalid && formSubmitAttempt">
+                                <div class="text-danger" >Name is invalid</div>
+                              </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" minlength="14" mask="0000-0000-0000-0000"  maxlength="20" formControlName="cardnumber" placeholder="Enter Number..." class="form-control">
+                            <div *ngIf="formDetails.get('cardnumber').invalid && formSubmitAttempt">
+                                <div class="text-danger" >Card Number is invalid</div>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Valid Thru</label>
+                                    <input type="text" formControlName="mmyy" mask="00/00"  minlength="4" maxlength="6" placeholder="mm/yy" class="form-control">
+                                    <div *ngIf="formDetails.get('mmyy').invalid && formSubmitAttempt">
+                                        <div class="text-danger" >Expiry is invalid</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <input type="text" minlength="3" mask="000" maxlength="4" formControlName="cvv" placeholder="123" class="form-control">
+                                    <div *ngIf="formDetails.get('cvv').invalid && formSubmitAttempt">
+                                        <div class="text-danger" >CVV is invalid</div>
+                                    </div>
+                                  
+                                </div>
+                            </div>                           
+                            <div class="col-lg-6">
+                                <input type="submit" name="submit" class="btn input-block-level form-control" style="border-radius: 10px;" value="Pay Now"/>
+                            </div>
+                            <div class="col-lg-6">
+                                <a  name="submit" routerLink="/my-account" class="btn input-block-level form-control" style="border-radius: 10px;">
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+                       
+                       
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5 col-12">
+                <div class="card">
+                    <h4>{{data.title}}</h4>
+                    <ul>
+                        <li class="d-flex align-items-center">
+                            <b>Price :</b>
+                            <span class="ms-auto">${{data.price}}</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <b>Total Price :</b>
+                            <span class="ms-auto">${{data.price}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <section class="footer">
+                <p>In case you have any queries <a routerLink="/contact-us/">Contact Us</a></p>
+            </section>
+        </div><!--row-->
+        
+
+      
+
+    </div>
+    
+</section>
+
+<ngx-spinner size="medium" type="timer"></ngx-spinner>
+
+<div  class="modal  error-modal"  tabindex="-1" id="hotelPermission" role="dialog"  [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+            <img src="../../../assets/image/check-modal.svg" alt="">
+          <p class="modal-title">{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" [ngStyle]="{'display':displayStyle}"></div>

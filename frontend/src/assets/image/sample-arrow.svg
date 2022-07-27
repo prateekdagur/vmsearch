@@ -1,0 +1,17 @@
+<svg id="sample-arrow" xmlns="http://www.w3.org/2000/svg" width="23.634" height="15.001" viewBox="0 0 23.634 15.001">
+  <path id="_Group_" data-name="&lt;Group&gt;" d="M45.035,30l6.637,6.78-6.637,6.78V39.634H35.9V33.925h9.135Z" transform="translate(-28.764 -29.273)" fill="#ffde95"/>
+  <g id="_Group_2" data-name="&lt;Group&gt;">
+    <g id="_Group_3" data-name="&lt;Group&gt;" transform="translate(6.423)">
+      <path id="_Compound_Path_" data-name="&lt;Compound Path&gt;" d="M43.748,42.961h-.285a.785.785,0,0,1-.428-.714V39.036H34.614a.607.607,0,0,1-.5-.214.714.714,0,0,1-.214-.5V32.613a.714.714,0,0,1,.714-.714h8.421V28.688a.785.785,0,0,1,.428-.678.714.714,0,0,1,.785.178l6.673,6.78a.749.749,0,0,1,0,1l-6.673,6.78A.714.714,0,0,1,43.748,42.961Zm-8.421-5.352h8.421a.714.714,0,0,1,.714.714V40.5l4.924-5.031-4.924-5.031v2.177a.714.714,0,0,1-.714.714H35.327Z" transform="translate(-33.9 -27.96)" fill="#e85769"/>
+    </g>
+    <g id="_Group_4" data-name="&lt;Group&gt;" transform="translate(4.282 3.939)">
+      <rect id="_Path_" data-name="&lt;Path&gt;" width="1.427" height="7.136" rx="0.714" fill="#e85769"/>
+    </g>
+    <g id="_Group_5" data-name="&lt;Group&gt;" transform="translate(2.141 3.939)">
+      <rect id="_Path_2" data-name="&lt;Path&gt;" width="1.427" height="7.136" rx="0.714" fill="#e85769"/>
+    </g>
+    <g id="_Group_6" data-name="&lt;Group&gt;" transform="translate(0 3.939)">
+      <rect id="_Path_3" data-name="&lt;Path&gt;" width="1.427" height="7.136" rx="0.714" fill="#e85769"/>
+    </g>
+  </g>
+</svg>

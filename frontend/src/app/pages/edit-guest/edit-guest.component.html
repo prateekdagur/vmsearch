@@ -1,0 +1,159 @@
+<section class="home">
+    <div class="container">
+
+        <div class="col-lg-12">   
+
+            <div class="head d-flex align-items-center">
+                <h3>Edit Contact</h3>
+            </div>        
+        </div>
+
+     <form [formGroup]="personalDetails" id="msform" #f="ngForm" (ngSubmit)="submit()">
+                            <fieldset>    
+        <div class="col-lg-12">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-12">
+                    <div class="box identity">
+                        <h4>DL image</h4>
+                        <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelectDlimage($event)">
+                            <ngx-dropzone-label>
+                              <img src="../../../assets/image/upload.svg" alt="">
+                              <h6>Drop your image here, or browse</h6>
+                              <span>Supports only PNG,JPG or JPEG</span>
+                            </ngx-dropzone-label>
+                                               
+                        </div>
+                        <span class="optional">(optional)</span>
+                        <div class="image-preview">
+                          <ngx-dropzone-image-preview  ngProjectAs="ngx-dropzone-preview" *ngFor="let image of Dlimages" [file]="image" [removable]="true" (removed)="onRemoveDlimage(image)">
+                            <ngx-dropzone-label>{{ image.name }} ({{ image.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-image-preview> 
+                        </div>
+                        <ngx-dropzone-label *ngIf="dl_image_old" [ngStyle]="{'display':displayStyleImage}">
+                            <img height="120px" width="150px" [src]="dl_image_old">                                                
+                         </ngx-dropzone-label>  
+                         
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-12">
+                    <div class="box">
+
+                       
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                    <label>First Name<sup class="required_star">*</sup></label>
+                                    <input type="text" formControlName="firstName" maxlength="20" placeholder="Enter Name" class="form-control"/>
+                                    <div *ngIf="personalDetails.get('firstName').invalid && formSubmitAttempt">
+                                        <div class="text-danger" >First name is required</div>
+                                      </div>
+                                </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                      <label>Last Name<sup class="required_star">*</sup></label>
+                                      <input type="text" formControlName="lastName" maxlength="20" class="form-control" placeholder="Last name">
+                                      <div *ngIf="personalDetails.get('lastName').invalid && formSubmitAttempt">
+                                        <div class="text-danger" >Last name is required</div>
+                                      </div>
+                                  </div>
+                                </div>  
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                      <label>Date of Birth</label>
+                                      <input type="date" formControlName="dob" class="form-control" placeholder="">
+                                      <div *ngIf="personalDetails.get('dob').invalid && formSubmitAttempt">
+                                        <div class="text-danger" >Date of Birth is required</div>
+                                      </div>
+                                      <span class="optional">(optional)</span>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                      <label>DL Number<sup class="required_star">*</sup></label>
+                                      <input type="text" formControlName="dlNumber" class="form-control">
+                                      <div *ngIf="personalDetails.get('dlNumber').invalid && formSubmitAttempt">
+                                        <div class="text-danger" >DL Number is required</div>
+                                      </div>
+                                  </div>
+                                </div>   
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                      <label>DL Expiry Date</label>
+                                      <input type="date" formControlName="dlExpiryDate" class="form-control" placeholder="">
+                                      <div *ngIf="personalDetails.get('dlExpiryDate').invalid && formSubmitAttempt">
+                                        <div class="text-danger" >DL Expiry Date is required</div>
+                                      </div>
+                                      <span class="optional">(optional)</span>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                      <label>DL State <sup class="required_star">*</sup></label>
+                                      
+                                      <select formControlName="dlState" class="form-control">
+                                        <option value="">Select DL state</option>
+                                        <option *ngFor="let dlstate of state"  [selected]="dlstate == currentDlState" value="{{dlstate}}">{{dlstate}}</option>
+                                      </select>
+                                      <div *ngIf="personalDetails.get('dlState').invalid && formSubmitAttempt">
+                                        <div class="text-danger" >DL State is required</div>
+                                      </div>
+                                  </div>
+                                </div>         
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                      <label>Address</label>
+                                      <input type="hidden" formControlName="city" >
+                                      <input type="hidden" formControlName="state" >
+                                      <input type="text" formControlName="address" ngx-google-places-autocomplete (onAddressChange)="handleAddressChange($event)"  class="form-control" placeholder="Enter Address">
+                                      <span class="optional">(optional)</span>
+                                  </div>
+                                </div>
+                                
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                      <label>Zip Code</label>
+                                      <input type="text" formControlName="zipCode" class="form-control" placeholder="Enter Zip Code">
+                                      <span class="optional">(optional)</span>
+                                  </div>
+                                  <div class="row">           
+                                    <button type="submit"  class="btn">Save</button>                        
+                                    </div><!--row-->
+                                </div>  
+                                                    
+                              </div><!--row-->
+                           
+
+                    </div>
+                </div>
+
+            </div><!--row-->
+
+        </div>
+
+       
+    </fieldset>
+</form>
+    </div>
+</section>
+<div  class="modal  error-modal"  tabindex="-1" id="hotelPermission" role="dialog"  [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+            <img src="../../../assets/image/error-modal.svg" alt="">
+          <p class="modal-title">{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show"  [ngStyle]="{'display':displayStyle}"></div>
+  <ngx-spinner size="medium"  type = "timer">
+    <p style="color: white" > Please wait... </p>
+  </ngx-spinner>

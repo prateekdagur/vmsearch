@@ -1,0 +1,212 @@
+
+<section class="home">
+  <div class="container-fluid">
+    <div class="col-lg-12 col-sm-12 col-12">
+    <div class="head">
+      <h3>DNR Reasons List</h3>
+    </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sr. No.</th>
+              <th scope="col">DNR Name</th>
+              <th scope="col">Created Date</th>
+              <th scope="col">Modified Date</th>
+              <th scope="col">Action</th>
+            </tr>
+            <tr class="sub-head">
+              <th scope="col"></th>
+              <th scope="col">
+                <input
+                type="dnr_name"
+                (keyup)="onChangeDnr($event)"
+                placeholder="Type DNR Name"
+                class="form-control"
+                />
+              </th>
+              <th scope="col"> 
+                <select class = "form-control" (change)="checkCreated($event)" aria-label="Default select example">
+                  <option selected>ALL</option>
+                  <option >
+                     SORT ASC
+                  </option> 
+                  <option >
+                    SORT DSC
+                 </option> 
+                                                   
+                </select>
+                </th>
+              <th scope="col"> 
+                <select class = "form-control" (change)="checkModified($event)" aria-label="Default select example">
+                  <option selected>ALL</option>
+                  <option >
+                    SORT ASC
+                  </option> 
+                  <option >
+                    SORT DSC
+                 </option> 
+                                                
+                </select>
+                </th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let row of dnrData
+                  | paginate
+                    : {
+                        itemsPerPage: itemsperPage,
+                        currentPage: p,
+                        totalItems: itemLength
+                      };
+                let i = index
+              "
+            >
+              <td>{{(this.itemsperPage*(this.p-1)+(i+1))}}</td>
+              <td>{{ row.Dnr_title }}</td>
+              <td>{{ row.date | date:dateFormat}}</td>
+              <td>{{ row.modifiedate | date:dateFormat }}</td>
+              <td>
+                <label>
+                  <button
+                    type="button"
+                    class="btn btn-danger m-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModaldelete"
+                    (click)="delete(row?._id)"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-success m-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModaledit"
+                    (click)="update(row?._id)"
+                  >
+                    Edit
+                  </button>
+                </label>
+              </td>
+            </tr>
+            <tr *ngIf="dnrData.length === 0">
+              <td colspan="6">No Record Found</td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls
+          *ngIf="dnrData"
+          (pageChange)="pageChangeEvent($event)"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div
+  class="modal fade"
+  id="exampleModaledit"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="head">
+          <h2>Update DNR</h2>
+        </div>
+        <form [formGroup]="AdminDnrUpdate">
+          <div class="form-group">
+            <input
+              type="dnr_title"
+              formControlName="dnr_title"
+              placeholder="Enter DNR"
+              class="form-control"
+            />
+            <div *ngIf="AdminDnrUpdate.get('dnr_title').touched && personal['dnr_title'].errors">
+              <div *ngIf="personal['dnr_title'].errors?.required" class="text-danger" >DNR is required</div>
+            </div>
+          </div>
+          <button
+            type="button"
+            [disabled]="AdminDnrUpdate.invalid"
+            name="submit"
+            class="btn btn-primary"
+            value="Submit"
+            (click)="updateDnr(UpdatednrId)"
+            data-bs-dismiss="modal"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="modal fade error-modal" id="exampleModaldelete" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+          <img src="../../../assets/image/cross-modal.svg" alt="">
+        <p class="modal-title">Are you sure you want delete this DNR?</p>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary black" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="deleteDnr(DeletednrId)" data-bs-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade error-modal" id="exampleModaledit" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="head">
+          <h2>Update DNR</h2>
+        </div>
+        <form [formGroup]="AdminDnrUpdate">
+          <div class="form-group">
+            <input
+              type="dnr_title"
+              formControlName="dnr_title"
+              placeholder="Enter DNR"
+              class="form-control"
+            />
+            <div *ngIf="AdminDnrUpdate.get('dnr_title').touched && personal['dnr_title'].errors">
+              <div *ngIf="personal['dnr_title'].errors?.required" class="text-danger" >DNR is required</div>
+            </div>
+          </div>
+          <button
+            type="button"
+            [disabled]="AdminDnrUpdate.invalid"
+            name="submit"
+            class="btn btn-primary"
+            value="Submit"
+            (click)="updateDnr(UpdatednrId)"
+            data-bs-dismiss="modal"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

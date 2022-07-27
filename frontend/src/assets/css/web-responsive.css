@@ -1,0 +1,138 @@
+@media screen and (max-width: 1200px) {
+	.landing-page .choose-plan-price ul {
+		margin-bottom: 0px;
+	}
+}
+
+
+@media screen and (min-width: 992px) {
+	.landing-page .navbar-expand-lg .navbar-collapse {
+		display: contents !important;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.landing-page  .navbar-nav li {
+		border-bottom: 1px solid #ccc9;
+		font-size: 14px;
+		font-weight: 400;
+		padding: 3px 0;
+	}	
+	.landing-page  #navbarDropdown {
+		border: none;
+	}
+	.landing-page .navbar-nav {
+    text-align: center;
+    width: 100%;
+    background: #ffffff6b;
+}
+.landing-page .main-banner p {
+		width: 100%;
+	}
+
+	.landing-page .footer-links {
+		width: 100%;
+	}
+
+	.landing-page .choose-plan-area h1 {
+		font-size: 30px;
+	}
+
+	.landing-page .choose-plan-btn {
+		font-size: 12px;
+		padding: 15px 15px;
+	}
+
+	.landing-page .pricing-plan-area {
+		padding: 30px 15px;
+	}
+
+	.landing-page .price-content p {
+		font-size: 16px;
+	}
+
+	.landing-page .choose-plan-price ul li {
+		font-size: 16px;
+	}
+
+	.landing-page .benefits-content {
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.landing-page .content-section p {
+		width: 100%;
+	}
+	.landing-page .live-events-section {
+		text-align: left;
+	}
+}
+
+@media screen and (min-width: 767px) {
+	.landing-page .mob-banner {
+    display: none;
+}
+}
+
+@media screen and (max-width: 767px) {
+	.landing-page h4 {
+		font-size: 35px;
+	}
+	.landing-page .yearly-pricing-plan {
+	margin-top: 30px;
+}
+.landing-page .features-section {
+    padding-top: 40px;
+}
+.landing-page .bottom-bar {
+    padding: 11px 0;
+    font-size: 12px;
+    text-align: center;
+}
+.landing-page .bottom-bar p {
+    margin-bottom: 0px;
+}
+.landing-page .bottom-bar .links {
+    text-align: right;
+	border-top: 1px solid #ffffff70;
+	padding-bottom: 0px;
+    padding-top: 5px;
+    border-top: 1px solid #ffffff70;
+    margin-top: 10px;
+
+}
+
+.landing-page .bottom-bar .links ul li:first-child {
+    border-right: 0;
+    padding-right: 0px;
+}
+.landing-page .bottom-bar .links ul {
+    text-align: center;
+    padding-left: 0px;
+}
+.landing-page .bottom-bar .links ul li {
+    display: inline-flex;
+    padding-left: 10px;
+    font-weight: 400;
+}
+.landing-page .desktop-banner  {
+	display: none;
+}
+}
+
+@media screen and (max-width: 570px) {
+	.landing-page .footer-links ul {
+		padding-left: 0px;
+	}
+	.landing-page .footer-links ul li {
+    margin-bottom: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.landing-page .main-banner h1 {
+    font-size: 30px;
+}
+.landing-page .main-banner h2 {
+    font-size: 25px;
+}
+}

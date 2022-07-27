@@ -1,0 +1,186 @@
+.payment .card {
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+    border: none;
+    padding: 30px 60px;
+    form{
+        width: 70%;
+        a.btn{
+            height: 45px;
+            color: #fff !important;
+            background: #3E3D53;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-family:'medium';
+        }
+    }
+}
+
+.payment .card .form-group label {
+    color: #403E4A;
+    font-family: 'medium';
+    margin: 0 0 10px;
+}
+
+.payment .card .form-control {
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%) !important;
+    border-radius: 5px !important;
+}
+
+.payment .card h4 {
+    font-size: 14px;
+    margin: 0 0 25px;
+    color: #302D3A;
+    font-family: 'medium';
+}
+
+.payment .card ul {
+    padding: 0;
+    margin: 0;
+}
+
+.payment .card ul li {
+    padding: 15px 0;
+    border-bottom: 1px solid #E1E1E1;
+}
+
+.payment .card ul li:last-child {
+    border: none;
+    font-size: 17px;
+    font-family: 'medium';
+}
+
+.payment .card ul li b {
+    font-family: 'medium';
+    font-weight: normal;
+}
+
+
+
+section.footer p {
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+}
+
+section.footer p a {
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 10px;
+    font-family: 'medium';
+    color: #000;
+    font-size: 13px;
+}
+
+section.footer {
+    border-top: 1px solid #CCCCBF;
+    position: fixed;
+    width: 68rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+section.header {
+    padding: 15px 0;
+    margin: 0 0 40px;
+    a{
+        display: inline-block;
+    }
+}
+
+section.payment {
+    padding-bottom: 120px;
+}
+
+section.payment .footer {
+    background: #fffff5;
+}
+
+
+.error-modal .modal-body {
+    text-align: center;
+    padding: 35px 35px 25px;
+}
+
+.error-modal .modal-body p.modal-title {
+    font-size: 17px;
+    color: #403E4A;
+    margin: 0 auto;
+    width: 80%;
+    display: block;
+}
+
+.error-modal .modal-body h4.modal-title-main {
+    margin: 15px auto;
+    font-size: 19px;
+}
+
+ .modal-footer {
+    border: none;
+    padding-top: 0 !important;
+    padding: 30px;
+}
+
+.error-modal .modal-footer button {
+    margin: 0 auto;
+    min-width: 118px;
+    height: 45px;
+    text-transform: uppercase;
+    background: #363636;
+    border: none;
+}
+
+.modal-header {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    border: none;
+    color: #fff;
+    line-height: 33px;
+    padding: 0;
+}
+
+.modal-header button {
+    color: #fff !important;
+    box-shadow:none !important;
+    width: auto;
+    opacity: 1;
+    background: transparent;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: normal;
+    height: 24px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 8px;
+}
+
+
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+}
+
+
+
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {  }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+
+    .payment .card form{width: 100%;}
+    section.footer{position: unset;width: 100%;}
+    section.payment{padding: 0;}
+    .payment .card{padding: 30px;}
+
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {  }

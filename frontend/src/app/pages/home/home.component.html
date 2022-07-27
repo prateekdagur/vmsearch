@@ -1,0 +1,115 @@
+<section class="home">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <div class="box-lft">
+                    <iframe style="width: 100%;" height="315" [src]='safeURL' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-12">
+               <section class="total-count">
+                 <div class="card d-flex align-items-center flex-row">
+                   <div class="d-flex align-items-center flex-row">
+                     <span><img src="../../../assets/image/live-event.png" alt=""></span>
+                     <h3 class="m-0 ms-3">live events</h3>
+                   </div>
+                   <p class="ms-auto">{{dataArray.totalLiveEvents}}</p>
+                 </div>
+                 <div class="card d-flex align-items-center flex-row">
+                   <div class="d-flex align-items-center flex-row">
+                     <span><img src="../../../assets/image/dnr-list.png" alt=""></span>
+                     <h3 class="m-0 ms-3">DNR list</h3>
+                   </div>
+                   <p class="ms-auto">{{dataArray.totalDnrList}}</p>
+                 </div>
+                 <div class="card d-flex align-items-center flex-row">
+                   <div class="d-flex align-items-center flex-row">
+                     <span><img src="../../../assets/image/my-hotels.png" alt=""></span>
+                     <h3 class="m-0 ms-3">my hotels</h3>
+                   </div>
+                   <p class="ms-auto">{{dataArray.totalMyHotels}}</p>
+                 </div>
+               </section>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-sm-12 col-12">
+            <h3>Live Events</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">name</th>
+                    <th scope="col">hotel name/<br>state</th>
+                    <th scope="col">feedback</th>
+                    <!--th scope="col">image/<br>video</th-->
+                    <th>details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let event of dataArray.liveEvents">
+                      <td><a routerLink="/feedback-approvals-detail/{{event.guestDataEvent._id}}">{{event.guestDataEvent.firstName}} {{event.guestDataEvent.lastName}}</a><span>{{event.eventData.date | date:dateFormat}}</span></td>
+                      <td>{{event.hotelDataEvent.hotelname}}<br> {{event.hotelDataEvent.state}}</td>
+                      
+                      <td>
+                        <span *ngFor = "let dnrReasonData of event.eventData.dnrReasonArray;">  {{dnrReasonData | commonDnrName | async | slice:0:20 }}<br></span>
+                        <span >{{event.eventData.comments | slice:0:20 }}</span>
+                      </td>
+                      <!--td><img src="../../../assets/image/image.svg" alt=""> 5</td-->
+                      <td><a routerLink="/feedback-approvals-detail/{{event.guestDataEvent._id}}"><img src="../../../assets/image/eye.svg" alt=""></a></td>
+                    </tr>
+                    <tr *ngIf="liveEventsCount == 0"><td>No Record Found</td></tr>                    
+                </tbody>
+            </table>
+            <div class="bottom-section d-flex">
+                <p><img src="../../../assets/image/time.svg" alt="">Past 24 hrs</p>
+            </div>
+            </div>
+
+            <div class="bottom-section d-flex">
+                <!--p><img src="../../../assets/image/time.svg" alt="">Past 24 hrs</p-->
+                <button routerLink="/live-events" *ngIf="liveEventsCount >= 3" class="btn ms-auto">view more</button>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-12 col-12">
+            <h3>DNR List</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">name</th>
+                    <th scope="col">hotel name/<br>state</th>
+                    <th scope="col">feedback</th>
+                    <!--th scope="col">image/<br>video</th-->
+                    <th>details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let event of dataArray.dnrList">
+                    <td><a routerLink="/feedback-approvals-detail/{{event.guestDataDnr._id}}">{{event.guestDataDnr.firstName}} {{event.guestDataDnr.lastName}}</a><span>{{event.eventData.date | date:dateFormat}}</span></td>
+                    <td>{{event.hotelDataDnr.hotelname}}<br>  {{event.hotelDataDnr.state}}</td>
+                    <td>
+                      <span *ngFor = "let dnrReasonData of event.eventData.dnrReasonArray;">  {{dnrReasonData | commonDnrName | async}}<br></span>
+                      <span >{{event.eventData.comments}}</span>
+                    </td>
+                    <!--td><img src="../../../assets/image/image.svg" alt="">{{dataArray.allCount}}</td-->
+                    <td><a routerLink="/feedback-approvals-detail/{{event.guestDataDnr._id}}"><img src="../../../assets/image/eye.svg" alt=""></a></td>
+                  </tr>    
+                  <tr *ngIf="dnrlistCount == 0"><td>No Record Found</td></tr>                         
+              </tbody>
+            </table>
+            </div>
+
+            <div class="bottom-section d-flex">
+                <button routerLink="/dnr-list"  *ngIf="dnrlistCount >= 3" class="btn ms-auto">view more</button>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+</section>

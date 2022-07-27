@@ -1,0 +1,138 @@
+@media screen and (max-width: 1200px) {
+	.choose-plan-price ul {
+		margin-bottom: 0px;
+	}
+}
+
+
+@media screen and (min-width: 992px) {
+	.navbar-expand-lg .navbar-collapse {
+		display: contents !important;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.navbar-nav li {
+		border-bottom: 1px solid #ccc9;
+		font-size: 14px;
+		font-weight: 400;
+		padding: 3px 0;
+	}	
+	#navbarDropdown {
+		border: none;
+	}
+.navbar-nav {
+    text-align: center;
+    width: 100%;
+    background: #ffffff6b;
+}
+	.main-banner p {
+		width: 100%;
+	}
+
+	.footer-links {
+		width: 100%;
+	}
+
+	.choose-plan-area h1 {
+		font-size: 30px;
+	}
+
+	.choose-plan-btn {
+		font-size: 12px;
+		padding: 15px 15px;
+	}
+
+	.pricing-plan-area {
+		padding: 30px 15px;
+	}
+
+	.price-content p {
+		font-size: 16px;
+	}
+
+	.choose-plan-price ul li {
+		font-size: 16px;
+	}
+
+	.benefits-content {
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.content-section p {
+		width: 100%;
+	}
+	.live-events-section {
+		text-align: left;
+	}
+}
+
+@media screen and (min-width: 767px) {
+.mob-banner {
+    display: none;
+}
+}
+
+@media screen and (max-width: 767px) {
+	h4 {
+		font-size: 35px;
+	}
+.yearly-pricing-plan {
+	margin-top: 30px;
+}
+.features-section {
+    padding-top: 40px;
+}
+.bottom-bar {
+    padding: 11px 0;
+    font-size: 12px;
+    text-align: center;
+}
+.bottom-bar p {
+    margin-bottom: 0px;
+}
+.bottom-bar .links {
+    text-align: right;
+	border-top: 1px solid #ffffff70;
+	padding-bottom: 0px;
+    padding-top: 5px;
+    border-top: 1px solid #ffffff70;
+    margin-top: 10px;
+
+}
+
+.bottom-bar .links ul li:first-child {
+    border-right: 0;
+    padding-right: 0px;
+}
+.bottom-bar .links ul {
+    text-align: center;
+    padding-left: 0px;
+}
+.bottom-bar .links ul li {
+    display: inline-flex;
+    padding-left: 10px;
+    font-weight: 400;
+}
+.desktop-banner  {
+	display: none;
+}
+}
+
+@media screen and (max-width: 570px) {
+	.footer-links ul {
+		padding-left: 0px;
+	}
+.footer-links ul li {
+    margin-bottom: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.main-banner h1 {
+    font-size: 30px;
+}
+.main-banner h2 {
+    font-size: 25px;
+}
+}

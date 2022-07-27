@@ -1,0 +1,47 @@
+section.query{    
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    .content {
+        text-align: center;
+        h3 {
+            font-size: 25px;
+            text-transform: uppercase;
+            margin: 0 0 10px;
+        }
+        p {
+            color: #535353;
+            text-transform: uppercase;
+            font-family: 'medium';
+            letter-spacing: 3px;
+            font-size: 13px;
+            margin: 0;
+        }
+        ul {
+            margin: 35px 0 0;
+            padding: 0;
+            list-style: none;
+            li {
+                border-bottom: 1px solid #E2E2E1;
+                padding: 13px;
+                color: #403E4A;
+                &:last-child {
+                    border-bottom: 0;
+                }
+                b {
+                    font-weight: normal;
+                    font-family: 'medium';
+                }
+            }
+        }
+    }
+}
+
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+    section.query{height: auto;padding: 30px 0;}
+
+}

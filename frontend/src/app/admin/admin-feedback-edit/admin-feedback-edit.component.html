@@ -1,0 +1,171 @@
+<section class="home">
+  <div class="container">
+
+      <div class="col-lg-12">   
+
+          <div class="head d-flex align-items-center">
+              <h3>Edit Feedback</h3>
+          </div>        
+      </div>
+
+      
+      <div class="col-lg-12">
+
+          <div class="box p-0">
+              <h4>DL image 
+            </h4>
+              <div class="row">
+
+                  <div class="col-lg-4 col-12">
+                      <div class="box identity" >
+                          <span >
+                              <img [src]="DataGuest.user.dlImage" alt="">
+                          </span>
+                      </div>
+                  </div>
+  
+                  <div class="col-lg-8 col-12">
+                      <div class="box approval-detail">
+  
+                          <ul>
+                              <li>Name <span class="ms-auto">{{DataGuest.user.firstName}} {{DataGuest.user.lastName}}</span></li>
+                              <li>Date of Birth (req) <span class="ms-auto">{{DataGuest.user.formated_dob}} </span></li>
+                              <li>DL Number <span class="ms-auto">{{DataGuest.user.dlNumber}} </span></li>
+                              <li>Address <span class="ms-auto">{{DataGuest.user.address}} </span></li>
+                              <li>DL State <span class="ms-auto">{{DataGuest.user.dlState}} </span></li>
+                              <li>DL Expiry Date <span class="ms-auto">{{DataGuest.user.formated_dlExpiry}} </span></li>
+                          </ul>
+  
+                      </div>
+                  </div>
+  
+              </div>
+          </div>
+
+      </div>
+      <form  [formGroup]="formDetails" id="msform" (ngSubmit)="submit()" #f="ngForm">
+      <div class="row mt-4">
+         
+          <div class="col-lg-6 col-6">
+              <div class="box p-0">
+                  <h4>Photos</h4>
+                  <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelectPhoto($event)">
+                      <ngx-dropzone-label>
+                        <img src="../../../assets/image/upload.svg" alt="">
+                          <h6>Drop your image here, or browse</h6>
+                          <span>Supports only PNG,JPG or JPEG</span>
+                      </ngx-dropzone-label>                                              
+                  </div>
+                  <span class="optional">(optional)</span>
+                
+                  <div class="col-lg-6 col-12" *ngIf="feedbackPhotos.length != 0">
+                      <div class="multi-photo">
+                          <div class="list">
+                              <div class="position-relative" *ngFor="let photoSrc of feedbackPhotos">
+                                  <ngx-dropzone-remove-badge _ngcontent-xhi-c60="" _nghost-xhi-c61="" (click)="onRemovePhotoArray(photoSrc)">
+                                      <svg _ngcontent-xhi-c61=""><line _ngcontent-xhi-c61="" x1="0" y1="0" x2="10" y2="10"></line><line _ngcontent-xhi-c61="" x1="0" y1="10" x2="10" y2="0"></line></svg>
+                                  </ngx-dropzone-remove-badge>
+                                  <span>
+                                      <a href="{{ photoSrc }}" target="_blank"><img src="{{ photoSrc }}" alt=""></a>
+                                  </span> 
+                              </div>                                           
+                          </div>
+                      </div>
+                  </div>
+
+                 
+                  
+              </div>
+          </div>
+
+          <div class="col-lg-6 col-6">
+              <div class="box p-0">
+                  <h4>Videos</h4>
+                  <div class="custom-dropzone" ngx-dropzone [accept]="'video/*'" (change)="onSelectVideo($event)">
+                      <ngx-dropzone-label>
+                        <img src="../../../assets/image/upload.svg" alt="">
+                        <h6>Drop your video here, or browse</h6>
+                        <span>Supports all video format</span>
+                      </ngx-dropzone-label>                                           
+                  </div>
+                  <span class="optional">(optional)</span>
+                 
+                  <div class="col-lg-6 col-12" *ngIf="feedbackVideos.length != 0">
+                                            
+                      <div class="multi-photo multi-video">
+                          <div class="list">
+                              <div class="position-relative" *ngFor="let videoSrc of feedbackVideos">
+                                  <ngx-dropzone-remove-badge _ngcontent-auo-c62="" _nghost-auo-c61="" (click)="onRemoveVideoArray(videoSrc)"><svg _ngcontent-auo-c61=""><line _ngcontent-auo-c61="" x1="0" y1="0" x2="10" y2="10"></line><line _ngcontent-auo-c61="" x1="0" y1="10" x2="10" y2="0"></line></svg></ngx-dropzone-remove-badge>
+                                  <span>
+                                      <video controls>
+                                          <source src="{{ videoSrc }}" type="video/mp4">
+                                      </video>
+                                      
+                              </span>
+                              </div>
+                          </div>
+                      </div> 
+                  </div>
+
+              </div>
+          </div>
+          <!-- <div class="col-lg-6 col-12 mt-4">
+              <div class="form-group">
+                  <label>Hotel</label>
+                  <select formControlName="hotelId" id="hotelId" class="form-control">
+                      <option value="">Select Hotel</option>
+                      <option *ngFor="let row of hotels"  [selected]="row._id == currentHotel" value="{{row._id}}">{{row.hotelname}}</option>
+                  </select>
+                  <div *ngIf="formDetails.get('hotelId').invalid && formSubmitAttempt">
+                      <div class="text-danger" >Hotel is required</div>
+                    </div>
+              </div>
+            </div>  -->
+          <div class="col-lg-12 mt-5">
+              <div class="feedback">
+                  <h3>Give Feedback</h3>
+                  <span>Most Common DNR Reasons</span>
+
+                  <ul>
+                      <li *ngFor="let data of dnrReasonList.dnrReasonList; let i=index">
+                        <input type="checkbox" [value]="data._id" [checked]="feedbackDnrReason.includes(data._id)" (change)="onCheckboxChange($event)"> <span></span>{{data.Dnr_title}}
+                      </li>
+                      <li>
+                        <input type="checkbox" value="others"  [checked]="DataFeedback.feedback.comments != ''" (change)="checkOtherReason($event)"> <span></span>Other
+                      </li>
+                  </ul>
+              </div>
+
+              <div class="feedback comment" *ngIf="reasonOther == true" >
+                  <h3>Comments</h3>
+                  <textarea  id="" formControlName="comments" placeholder="Enter Details..." class="form-control"></textarea>
+                  
+              </div>
+
+          </div>
+
+          <button type="submit"   class="btn">Save</button>
+      
+      </div><!--row-->
+  </form>
+  </div>
+</section>
+<div  class="modal  error-modal"  tabindex="-1" id="hotelPermission" role="dialog"  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+          <img src="../../../assets/image/check-modal.svg" alt="">
+        <p class="modal-title">{{message}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show" [ngStyle]="{'display':displayStyle}"></div>
+<ngx-spinner size="medium"  type = "timer">
+  <p style="color: white" > Please wait... </p>
+</ngx-spinner><section class="home">
+  

@@ -1,0 +1,169 @@
+.top {
+  text-align: right;
+  color: #000;
+  font-size: 15px;
+  margin: 35px 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  .btn {
+    background: #3e3d53;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 15px;
+    margin-left: 15px;
+    height: 45px;
+    padding: 0 20px;
+    border-radius: 6px;
+  }
+}
+
+section.login {
+  overflow: hidden;
+  width: 100%;
+  background: #f4f1ea;
+  .col-lg-6 {
+    height: 100vh;
+    .login-bg {
+      background: url(../../../assets/image/login-bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      img {
+        width: 600px;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+    .card {
+      width: 73%;
+      border: none;
+      background: #333333;
+      padding: 33px 23px 40px;
+      margin: 86px 0 40px;
+      border-radius: 0;
+      box-shadow: 0 15px 17px rgb(0 0 0 / 16%);
+      .head {
+        color: #fff;
+      }
+    }
+  }
+
+  .head {
+    margin: 0 0 20px;
+    h2 {
+      font-size: 33px;
+      margin: 0;
+    }
+    p {
+      opacity: 40%;
+      margin: 15px 0 0;
+      font-size: 16px;
+    }
+  }
+}
+
+.error-modal .modal-body {
+  text-align: center;
+  padding: 35px 35px 25px;
+}
+
+.error-modal .modal-body p.modal-title {
+  font-size: 20px;
+  color: #403e4a;
+  margin: 15px auto 0;
+  width: 80%;
+  display: block;
+}
+
+.modal-footer {
+  border: none;
+  padding-top: 0 !important;
+  padding: 30px;
+}
+
+.error-modal .modal-footer button {
+  margin: 0 auto;
+  min-width: 118px;
+  height: 45px;
+  text-transform: uppercase;
+  background: #363636;
+  border: none;
+}
+
+.modal-header {
+  position: absolute;
+  right: 0;
+  top: -30px;
+  border: none;
+  color: #fff;
+  line-height: 33px;
+  padding: 0;
+}
+
+.modal-header button {
+  color: #fff !important;
+  box-shadow: none !important;
+  width: auto;
+  opacity: 1;
+  background: transparent;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: normal;
+  height: 24px;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 8px;
+}
+
+::ng-deep {
+  ng-otp-input input {
+    font-size: 16px !important;
+    color: #403e4a;
+    font-family: "medium";
+  }
+}
+
+form {
+  margin: 0;
+  input[type="submit"].btn,
+  input[type="button"].btn {
+    margin: 0 auto;
+    min-width: 100% !important;
+    background: #6b6b6b;
+    height: 48px;
+  }
+}
+
+.resend {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 26px auto 0;
+  color: #ffde95;
+  text-decoration: underline;
+  display: block;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  section.login .col-lg-6 .login-bg img {
+    width: 100%;
+  }
+  section.login .col-lg-6 .login-bg {
+    height: 50vh;
+  }
+  section.login .col-lg-6 {
+    height: auto;
+  }
+  section.login .col-lg-6 .card {
+    margin: 45px 0 60px;
+    width: 85%;
+  }
+  section.register .head h2 {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,221 @@
+
+<section class="register">
+    <div class="row m-0">
+      <div class="col-lg-6 col-12 p-0">
+            <section class="register-bg">
+                <img src="../../../assets/image/logo2.png" alt="">
+            </section>
+        </div>
+        <div class="col-lg-6 col-12 p-0" style="overflow: auto;">
+
+            <div class="top">
+                Already have an account? <button class="btn" routerLink="/login">login</button>
+            </div>
+
+            <section class="card mx-auto">
+
+                <div class="head">
+                    <h2>Register</h2>
+                    <p>Please enter the following details to Register into
+                        our Website.</p>
+                </div>
+    
+				<form [formGroup]="personalDetails" id="msform" #f="ngForm" (ngSubmit)="next()" novalidate>
+				  <fieldset *ngIf="step == 1">
+					<div class="form-group">
+						<label>Hotel Name<sup class="required_star">*</sup></label>
+						
+						<input type="text" formControlName="hotelname"   placeholder="Enter Name" class="form-control"/>
+						
+						<div *ngIf="personal_step && personal.hotelname.errors">
+						  <div *ngIf="personal.hotelname.errors?.required" class="text-danger" >Hotel name is required</div>
+						</div>
+					</div>
+					<div class="form-group">
+            <label>Phone Number<sup class="required_star">*</sup></label>
+            <div class="number d-flex align-items-center">
+                <ngx-intl-tel-input [cssClass]="'form-control'" appPhoneMask [preferredCountries]="preferredCountries"
+								[enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+								[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+								[selectedCountryISO]="CountryISO.UnitedStates" [minLength]="10" [maxLength]="15"
+								[phoneValidation]="true" [separateDialCode]="separateDialCode"
+								[numberFormat]="PhoneNumberFormat.National" formControlName="phonenumber">
+							</ngx-intl-tel-input>
+                        </div>
+						<div *ngIf="personal_step && personal.phonenumber.errors">
+						  <div class="text-danger" >Valid phone number is required</div>
+						</div>						
+					</div>   
+					<div class="form-group">
+						<label>Email<sup class="required_star">*</sup></label>
+						<input type="email" formControlName="email"   placeholder="Enter email" class="form-control"/>						
+						<div *ngIf="personal_step && personal.email.errors">
+						  <div class="text-danger" >Valid email is required</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+              <label>Address<sup class="required_star">*</sup></label>
+             <input type="text"  formControlName="address" autocomplete="disabled" ngx-google-places-autocomplete (onAddressChange)="handleAddressChange($event)"  placeholder="Enter address" class="form-control"/>
+						
+						<div *ngIf="personal_step && personal.address.errors">
+						  <div *ngIf="personal.address.errors?.required" class="text-danger" >Address is required</div>
+             
+						</div>
+            <div *ngIf="personal_step && personal.latitude.errors">
+              <div *ngIf="personal.latitude.errors?.required" class="text-danger" >Address should be added from google dropdown</div>
+            </div>
+          
+          </div> 
+          <div class="form-group">
+            <label>State <sup class="required_star">*</sup></label>
+            
+            <select formControlName="state" class="form-control">
+              <option value="">Select state</option>
+              <option *ngFor="let dlstate of state" value="{{dlstate}}">{{dlstate}}</option>
+            </select>
+            <div *ngIf="personal_step && personal.state.errors">
+              <div class="text-danger" >State is required</div>
+            </div>
+        </div>               
+            <div class="form-group">
+                <input type="hidden" formControlName="city" />
+                <input type="hidden" formControlName="latitude"/>
+                <input type="hidden" formControlName="longitude"/>
+						
+           </div> 
+                    <div class="row">
+                       
+                        <div class="col">
+                        <div class="form-group">
+                            <label>ZIP code<sup class="required_star">*</sup></label>
+                            <input type="text" formControlName="zipcode" maxlength="10"   placeholder="Enter zip code" class="form-control"/>
+
+                            <div *ngIf="personal_step && personal.zipcode.errors">
+                            <div *ngIf="personal.zipcode.errors?.required" class="text-danger" >ZIP code is required</div>
+                            </div>
+                        </div> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Set Password<sup class="required_star">*</sup></label>                        
+                      <div class="pwd">
+                        <input [type]="passwordType" formControlName="password" #password minlength="6" placeholder="Enter Password" class="form-control">
+                        <img src="../../../assets/image/eye.svg" [ngStyle]="{'display':dispalyPasswordTypeEye}" (click)="changePasswordType()" alt="">                          
+                        <img src="../../../assets/image/eye-close.svg" [ngStyle]="{'display':dispalyPasswordTypeEyeClose}" (click)="ResetChangePasswordType()" alt="">
+                      </div>
+						
+						<div *ngIf="personalDetails.get('password').touched && personal.password.errors">
+						  <div *ngIf="personal.password.errors?.required" class="text-danger" >Password is required</div>
+              <div *ngIf="personal.password.errors && personal.password.errors.pattern" class="text-danger">Minimum six characters, at least one uppercase letter, one lowercase letter, one special character and one number</div>
+						</div>
+                    </div> 
+                    <div class="form-group">
+                        <label>Confirm Password<sup class="required_star">*</sup></label>                                                
+                      <div class="pwd">
+                        <input [type]="ConfirmpasswordType" formControlName="cpassword"  #cpassword placeholder="Enter Password" class="form-control">
+                        <img src="../../../assets/image/eye.svg" [ngStyle]="{'display':ConfirmdispalyPasswordTypeEye}" (click)="changeConfirmPasswordType()" alt="">                          
+                        <img src="../../../assets/image/eye-close.svg" [ngStyle]="{'display':ConfirmdispalyPasswordTypeEyeClose}" (click)="ResetConfirmChangePasswordType()" alt="">
+                      </div>
+						
+						<div *ngIf="personal_step && personal.cpassword.errors">
+						  <div *ngIf="personal.cpassword.errors?.required" class="text-danger" >Confirm Password is required</div>
+						   <div *ngIf="personal.cpassword.errors?.mustMatch" class="text-danger" >Passwords must match</div>
+						</div>
+                    </div> 
+
+					<input (click)="next()" type="button" name="next" class="btn btn-primary" value="Next"/>
+				  </fieldset>
+				</form>
+				<form [formGroup]="addressDetails" id="msform">
+				  <fieldset *ngIf="step == 2">
+                  <div class="form-group mb-0">
+                    <label>Sales Tax Permit</label>
+
+                    <div class="custom-dropzone" ngx-dropzone [accept]="'image/jpeg,image/jpg,image/png'" (change)="onSelect($event)">
+                      <ngx-dropzone-label>
+                        <img src="../../../assets/image/upload.svg" alt="">
+                        <h6>Drop your image here, or browse</h6>
+                        <span>Supports only PNG,JPG or JPEG</span>
+                      </ngx-dropzone-label>   
+                     
+                      <div *ngIf="addressDetails.controls.files.touched && addressDetails.controls.files.errors">
+                        <div *ngIf="address.files.errors?.required" class="text-danger" >Tax Commission Permit required</div>
+                      </div>
+                    </div>
+                    <div style="width: 100%;text-align: center;">
+                      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" [multiple]="false" (removed)="onRemove(f)">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-image-preview>
+                    </div>
+                  </div>
+
+                    <span class="or">or</span>
+
+                  <div class="form-group">
+                      <label>Water/Gas Bill</label>
+                      <input type="hidden" name="file1data" value="{{file1data}}" />
+                            <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect1($event)">
+                              <ngx-dropzone-label>
+                                <img src="../../../assets/image/upload.svg" alt="">
+                                <h6>Drop your image here, or browse</h6>
+                                <span>Supports only PNG,JPG or JPEG</span>
+                              </ngx-dropzone-label> 
+                            </div>
+                            <div style="width: 100%;text-align: center;">
+                              <ngx-dropzone-image-preview  ngProjectAs="ngx-dropzone-preview" *ngFor="let f1 of files1" [file]="f1" [removable]="true" (removed)="onRemove1(f1)">
+                                <ngx-dropzone-label>{{ f1.name }} ({{ f1.type }})</ngx-dropzone-label>
+                                </ngx-dropzone-image-preview>
+                            </div>
+                           
+                  </div>
+                  
+                  <div class="btns-group">
+                    <input (click)="previous()" type="button" name="previous" class="btn btn-primary" value="Previous"/>
+                    <input (click)="submit()" type="submit" [disabled]="addressDetails.invalid" name="submit" class="btn btn-info" value="Submit"/>
+                  </div>
+
+				  </fieldset>
+				</form>
+            </section>
+        </div>
+    </div>
+    
+</section>
+
+
+
+<div  class="modal  error-modal"  tabindex="-1" id="hotelPermission" role="dialog"  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" (click)="closePopup()" data-bs-dismiss="modal">x close</button>
+      </div>
+      <div class="modal-body">
+          <img src="../../../assets/image/error-modal.svg" alt="">
+        <p class="modal-title">{{message}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade error-modal" id="hotelPermission" tabindex="-1" aria-labelledby="hotelPermissionLabel" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+            <img src="../../../assets/image/error-modal.svg" alt="">
+          <p class="modal-title">Please contact your hotel owner
+            for register support</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ngx-spinner size="medium" type="timer"></ngx-spinner>

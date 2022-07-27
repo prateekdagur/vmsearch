@@ -1,0 +1,128 @@
+<section class="home">
+    <div class="container">
+
+        <div class="col-lg-12 col-sm-12 col-12">   
+
+            <div class="head d-flex align-items-center">
+                <h3>DNR List</h3>
+                <div class="ms-auto">
+                    <ol class="d-flex align-items-center">
+                        <li>
+                            <label>select hotel:</label>
+                            <select (change)="onChange($event.target.value)" name="hotel" id="hotel">
+                                <option value="all">All</option>
+                                <option *ngFor="let row of activeHotels" value="{{row._id}}">{{row.hotelname}}</option>
+                            </select>
+                        </li>
+                        <li>
+                            <a data-bs-toggle="modal" (click)="showBulkUpload()"><img src="../../../assets/image/upload.svg" alt="">Bulk Upload</a>
+                            <span>
+                                <a href="../../../assets/sample.csv"><img src="../../../assets/image/sample-arrow.svg" alt="">(Sample Document)</a>
+                            <div class="tooltip-sample">
+                                Please download sample csv file.
+                            </div>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">name</th>
+                    <th scope="col">hotel name/state</th>
+                    <th scope="col">feedback</th>
+                    <th scope="col">image/video</th>
+                    <th>details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let row of dataArray | paginate: { itemsPerPage: 10, currentPage: page,totalItems: totalItems }">
+                        <td><a routerLink="/feedback-approvals-detail/{{row.guestData._id}}">{{row.guestData.firstName}} {{row.guestData.lastName}}</a><span>{{row.eventData.date | date:dateFormat }}</span></td>
+                        <td>{{row.eventData.hotelname}}<br> {{row.eventData.hotelstate}}</td>
+                        <td><span *ngFor = "let dnrReasonData of row.eventData.dnrReasonArray">{{dnrReasonData  | commonDnrName | async | slice:0:20 }}<br></span>
+                            <span>{{row.eventData.comments | slice:0:20}}</span>
+                            
+                        </td>
+                        <td><img src="../../../assets/image/image.svg" alt="">  {{row.eventData.allCount}}</td>
+                        <td>
+                            <a  routerLink="/feedback-approvals-detail/{{row.guestData._id}}"><img src="../../../assets/image/eye-black.svg" alt=""></a>
+                            <a  routerLink="/edit-guest/{{row.guestData._id}}"><img src="../../../assets/image/edit.svg" alt=""></a>
+                        </td>
+                        
+                    </tr>
+                    <tr *ngIf="!dataArray"><td>No Record Found</td></tr>
+                </tbody>
+            </table>
+            <pagination-controls *ngIf="dataArray" (pageChange)="pageChange($event)"></pagination-controls>
+            
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal error-modal" id="" tabindex="-1" aria-labelledby="bulkUploadLabel" aria-hidden="true" [ngStyle]="{'display':displayStyleBulkUpload}">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!--  -->
+        <div class="modal-body">
+          <p class="modal-title">Select Hotel</p>
+
+          <form>
+              <div class="form-group">
+                  <select name="hotel" id="hotel-name" class="form-control" #t (change)="setHotelId(t.value)">
+                      <option value="">Select Hotel</option>
+                      <option *ngFor="let row of activeHotels" value="{{row._id}}">{{row.hotelname}}</option>
+                  </select>
+                  <span style="color: red;">{{message}}</span>
+              </div>
+              <div class="form-group mb-0">                  
+                <!-- <dropzone [message]="'Drop your image here, or browse'"></dropzone> -->
+
+                <div class="custom-dropzone" ngx-dropzone [accept]="'.csv'" (change)="handleFileSelect($event)">
+                    <ngx-dropzone-label>
+                      <img src="../../../assets/image/upload.svg" alt="">
+                      <h6>Drop your .csv document</h6>
+                      <span>Supports only .csv</span>
+                    </ngx-dropzone-label>
+                  </div>
+                  <span style="color: red;">{{messageFile}}</span>
+                  <div class="image-preview">
+                    <div [ngStyle]="{'display':displayUploadedCsv}">
+                        <img width="140" style="border-radius: 6px;" src="../../../assets/image/csv-outline.png"><span>{{fileName}}</span>                                                
+                    </div> 
+              </div>
+              </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">            
+            <button type="button" class="btn btn-primary" (click)="closePopup()" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" (click)="uploadCsvFiledata()" class="btn btn-primary" >Upload</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal-backdrop fade show" [ngStyle]="{'display':displayStyleBulkUpload}"></div>
+<ngx-spinner size="medium" type="timer"></ngx-spinner>
+
+<div  class="modal  error-modal"  tabindex="-1" id="hotelPermission" role="dialog"  [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">        
+        <div class="modal-body">
+            <img src="../../../assets/image/error-modal.svg" alt="">
+          <p class="modal-title">{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" [ngStyle]="{'display':displayStyle}"></div>

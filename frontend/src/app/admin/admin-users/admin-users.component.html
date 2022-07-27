@@ -1,0 +1,204 @@
+<section class="home">
+  <div class="container-fluid">
+    <div class="col-lg-12 col-sm-12 col-12">
+    <div class="head">
+      <h3>Hotel Owner List</h3>
+    </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sr. No.</th>
+              <th scope="col">Email</th>
+              <th scope="col">Contact Number</th>
+              <th scope="col">Number of hotels</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+              <th scope="col">Details</th>
+            </tr>
+            <tr class="sub-head">
+              <th scope="col">
+            </th>
+              <th scope="col">
+                <input
+                type="email"
+               (keyup)="onChangeEmail($event)"
+                placeholder="Type Email"
+                class="form-control"
+                />
+              </th>
+              <th scope="col">
+           <!-- <form [formGroup]="phoneForm" > -->
+                <div class="number d-flex align-items-center">
+                  <ngx-intl-tel-input [cssClass]="'form-control'" (keyup)="onChangeNumber($event)" appPhoneMask [preferredCountries]="preferredCountries"
+                  [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                  [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                  [selectedCountryISO]="CountryISO.UnitedStates"  [maxLength]="15"
+                  [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                  [numberFormat]="PhoneNumberFormat.National"
+                  >
+                </ngx-intl-tel-input>
+                  </div>   
+            <!-- </form>       -->
+            </th>
+              <th scope="col"></th>
+              <th scope="col">
+                <select class = "form-control" (change)="check($event)" aria-label="Default select example">
+                  <option selected>ALL</option>
+                  <option >
+                     APPROVED
+                  </option> 
+                  <option >
+                    REJECTED
+                 </option> 
+                 <option >
+                  PENDING
+               </option>                                     
+                </select>
+            </th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let row of userData
+                  | paginate
+                    : {
+                        itemsPerPage: itemsperPage,
+                        currentPage: p,
+                        totalItems: totalLength
+                      }; let i = index
+              "
+            >
+            <td>{{(this.itemsperPage*(this.p-1)+(i+1))}}</td>
+              <td>
+                {{ row.email }}
+              </td>
+              <td>{{ row.phonenumber }}</td>
+              <td>{{ row.counts }}</td>
+              <td><span [ngStyle]="{'color': row?.is_approved === 'PENDING' ? 'orange' : row?.is_approved === 'APPROVED' ? 'green' : 'Red' }">{{ row.is_approved}}</span></td>
+              <td>
+                <!-- <label class="switch">
+                  <input
+                    type="checkbox"
+                    (change)="statusChange($event, row?._id)"
+                    [checked]="row?.is_approved === 'APPROVED' ? true : false"
+                  />
+                  <span class="slider round"></span>
+                </label> -->
+                <button
+                  type="button"
+                  [disabled]="row?.is_approved === 'APPROVED'? true : row?.is_approved === 'REJECTED'? true : false "
+                  name="submit"
+                  class="btn btn-primary m-1"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModalaccept"
+                  (click)="acceptId(row?._id)"
+                  value="Submit"
+                >
+                  Accept
+                </button>
+                <button
+                  type="button"
+                  [disabled]="row?.is_approved === 'REJECTED'? true : false"
+                  name="submit"
+                  class="btn btn-danger m-1"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModalreject"
+                  (click)="rejectId(row?._id)"
+                  value="Submit"
+                >
+                  Reject
+                </button>
+                <button
+                type="button"
+                name="submit"
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModaldelete"
+                (click)="deleteId(row?._id)"
+                value="Submit"
+              >
+                Delete
+              </button>
+              </td>
+              <td>
+                <a routerLink="/admin-users-details/{{ row?._id }}"
+                  ><img src="../../../assets/image/eye-black.svg" alt=""
+                /></a>
+              </td>
+                <!-- <a
+                  *ngIf="row.canView == true"
+                  routerLink="/edit-guest/{{ row.guestData._id }}"
+                  ><img src="../../../assets/image/edit.svg" alt=""
+                /></a> -->
+              
+              <!-- <td><a  routerLink="/admin-users-details/{{row?._id}}"><img src="../../../assets/image/eye-black.svg" alt=""></a><a *ngIf="row.canView == true"  routerLink="/edit-guest/{{row.guestData._id}}"><img src="../../../assets/image/edit.svg" alt=""></a>
+              </td> -->
+            </tr>
+            <tr *ngIf="userData.length === 0">
+              <td colspan="6">No Record Found</td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls
+          *ngIf="userData"
+          (pageChange)="pageChangeEvent($event)"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="modal fade error-modal" id="exampleModaldelete" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+          <img src="../../../assets/image/cross-modal.svg" alt="">
+        <p class="modal-title">Are you sure you want delete this hotel owner?</p>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary black" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="softDeleteUser(deleteUserId)" data-bs-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade error-modal" id="exampleModalreject" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+          <img src="../../../assets/image/check-modal.svg" alt="">
+        <p class="modal-title">Do you want to reject the hotel owner?</p>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary black" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="rejectUser(rejectUserId)" data-bs-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+
+</div><div class="modal fade error-modal" id="exampleModalaccept" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+          <img src="../../../assets/image/check-modal.svg" alt="">
+        <p class="modal-title">Are you sure you want accept this hotel owner?</p>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary black" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="statusChange(acceptUserId)" data-bs-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,246 @@
+
+
+<header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 hotel-owner">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"
+    ><img src="../../../assets/image/logo.svg" alt="" width="110"
+  /></a>
+  <button
+    class="navbar-toggler position-absolute d-md-none collapsed"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#sidebarMenu"
+    aria-controls="sidebarMenu"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav
+      id="sidebarMenu"
+      class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    >
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">         
+          <li class="nav-item">
+            <a
+              [ngClass]="{
+                active: isActive == 'admin-users',
+                'nav-link': true
+              }"
+              aria-current="page"
+              routerLink="/admin-users"
+            >
+              Hotel Owners
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{
+                active: isActive == 'admin-frontdesk-manager',
+                'nav-link': true
+              }"
+              aria-current="page"
+              routerLink="/admin-frontdesk-manager"
+            >
+            Frontdesk Managers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{
+                active: isActive == 'admin-hotels',
+                'nav-link': true
+              }"
+              aria-current="page"
+              routerLink="/admin-hotels"
+            >
+              Hotels
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{
+                active: isActive == 'admin-feedback',
+                'nav-link': true
+              }"
+              aria-current="page"
+              routerLink="/admin-feedback"
+            >
+              Live Events
+            </a>
+          </li>
+         
+          <!-- <li class="nav-item">
+            <a
+              [ngClass]="{
+                active: isActive == 'admin-transaction',
+                'nav-link': true
+              }"
+              aria-current="page"
+              routerLink="/admin-transaction"
+            >
+              Transactions
+            </a>
+          </li> -->
+          <li class="nav-item">
+            <a
+              href="javascript:void(0)"
+              [ngClass]="{ active: isActive == 'dnr-create' || isActive == 'admin-dnr', 'nav-link': true }"
+              (click)="showDnr()"
+              >DNR Reason<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"/></svg></a
+            >
+            <ul
+              [style.display]="showDnrMenuOptions || showDnrSubMenu ? 'block' : 'none'"
+              class="nav-dropdown"
+            >
+              <li>
+                <a
+                  [ngClass]="{
+                    active: isActive == 'dnr-create',
+                    'nav-link': true
+                  }"
+                  aria-current="page"
+                  routerLink="/dnr-create"
+                  >Add DNR Reason</a
+                >
+              </li>
+              <li>
+                <a
+                  [ngClass]="{
+                    active: isActive == 'admin-dnr',
+                    'nav-link': true
+                  }"
+                  aria-current="page"
+                  routerLink="/admin-dnr"
+                  >DNR List</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a
+              href="javascript:void(0)"
+              (click)="showSubs()"
+              [ngClass]="{  active: isActive == 'admin-subscription' || isActive == 'adminlist-subscription', 'nav-link': true }"
+              aria-current="page"
+              >Subscription<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"/></svg></a
+            >
+
+            <ul
+              [style.display]="showSubscriptionMenuOptions ? 'block' : 'none'"
+              class="nav-dropdown"
+            >
+              <li>
+                <a
+                  [ngClass]="{
+                    active: isActive == 'admin-subscription',
+                    'nav-link': true
+                  }"
+                  aria-current="page"
+                  routerLink="/admin-subscription"
+                  >Add Subscription</a
+                >
+              </li>
+              <li>
+                <a
+                  [ngClass]="{
+                    active: isActive == 'adminlist-subscription',
+                    'nav-link': true
+                  }"
+                  aria-current="page"
+                  routerLink="/adminlist-subscription"
+                  >Subscription List</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{
+                active: isActive == 'admin-settings',
+                'nav-link': true
+              }"
+              aria-current="page"
+              routerLink="/admin-settings"
+            >
+              Settings
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{
+                active: isActive == 'admin-reset-password',
+                'nav-link': true
+              }"
+              aria-current="page"
+              routerLink="/admin-reset-password"
+            >
+              Change Password
+            </a>
+          </li>
+          <li class="nav-item logout">
+            <a class="nav-link" aria-current="page" (click)="onAdminLogout()">
+              <img src="../../../assets/image/logout-white.svg" alt="" />
+              LOGOUT ADMIN
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 p-0">
+      <div class="chartjs-size-monitor">
+        <div class="chartjs-size-monitor-expand"><div class=""></div></div>
+        <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
+      </div>
+
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
+
+<div
+  class="modal error-modal"
+  tabindex="-1"
+  id="hotelPermission"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          (click)="closePopup()"
+        >
+          x close
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="../../../assets/image/check-modal.svg" alt="" />
+        <p class="modal-title">{{ message }}</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="closePopup()"
+        >
+          ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal-backdrop fade show"
+  [ngStyle]="{ display: displayStyle }"
+></div>

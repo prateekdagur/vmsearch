@@ -1,0 +1,126 @@
+<section class="home">
+    <div class="container">
+
+        <div class="col-lg-12">   
+
+            <div class="head d-flex align-items-center">
+                <h3>Hotel Details</h3>
+            </div>        
+        </div>
+
+        
+        <div class="col-lg-12">
+
+            <div class="box p-0">
+               
+                <div class="row">
+
+                    <!-- <div class="col-lg-4 col-12">
+                        <div class="box identity">
+                            <span *ngIf="dataArray.user.dlImage">
+                                <img [src]="dataArray.user.dlImage" alt="">
+                            </span>
+                        </div>
+                    </div> -->
+   
+                    <div class="col-lg-8 col-12">
+                        <div class="box approval-detail">    
+                            <ul>
+                                <li>Hotel Name<span class="ms-auto">{{ViewHotelArray.hotelname}}</span></li>
+                                <li>Email<span class="ms-auto">{{ViewHotelArray.email}}</span></li>
+                                <li>Contact Number<span class="ms-auto">{{ViewHotelArray.phonenumber}}</span></li>
+                                <li>Address<span class="ms-auto">{{ViewHotelArray.address}}</span></li>
+                                <li>City<span class="ms-auto">{{ViewHotelArray.city}}</span></li>
+                                <li>State<span class="ms-auto">{{ViewHotelArray.state}}</span></li>
+                                <li>Zipcode<span class="ms-auto">{{ViewHotelArray.zipcode}}</span></li>
+                                <li>Status<span class="ms-auto">{{ViewHotelArray.is_approved}}</span></li>
+                                <li>Hotel Id<span class="ms-auto">{{ViewHotelArray._id}}</span></li>
+                                <li>Date<span class="ms-auto">{{ViewHotelArray.date | date: dateFormat}}</span></li>
+                                <li *ngIf="ViewHotelArray.tax_filename">Tax File <span class="ms-auto"><a
+                                    target="_blank"
+                                   
+                                    [href]="ViewHotelArray.tax_filename"
+                                    ><img width="100px" [src]="ViewHotelArray.tax_filename" /></a
+                                  ></span></li>
+                                  <li *ngIf="ViewHotelArray.bill_filename">Bill File <span class="ms-auto"><a
+                                    target="_blank"
+                                   
+                                    [href]="ViewHotelArray.bill_filename"
+                                    ><img width="100px" [src]="ViewHotelArray.bill_filename" /></a
+                                  ></span></li>
+                              </ul>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+
+        </div>
+        <!-- <div class="multi-photo">
+            <h5>Photo</h5>
+            <div class="list">
+                <span *ngFor="ViewUserArray.tax_filename">
+                    <a href="{{ ViewUserArray.tax_filename }}" target="_blank"><img src="{{ ViewUserArray.tax_filename }}" alt=""></a>
+                </span>                                            
+            </div>
+        </div> -->
+
+        <div class="row mt-4">
+            
+            <div class="col-lg-12">
+                <div class="feedback">
+                    
+                    <div class="inner-box" >                   
+                    <section class="home">
+                        <div class="container">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <h5>Transaction</h5>
+                               <div class="table-responsive">
+                                   <table class="table">
+                                     <thead>
+                                     <tr>
+                                        <th scope="col">Sr. No.</th>
+                                        <th scope="col">Transaction Id</th>
+                                        <th scope="col">Amount Paid</th>
+                                        <th scope="col">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr
+                                      *ngFor="
+                                         let trans of ViewTransactionsArray; let i = index
+                                         "
+                                         >
+                                         <td>
+                                            {{i+1}}
+                                          </td>
+                                          <td>{{ trans.transationId}}</td>
+                                          <td>${{ trans.amountPaid}}</td>
+                                          <td>{{ trans.date | date:dateFormat }}</td>
+                                        </tr>
+                                        <tr *ngIf="!ViewTransactionsArray">
+                                            <td>No Record Found</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <div *ngIf="ViewTransactionsArray.length === 0">
+                                        <td>No Record Found</td>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>       
+                          </div>
+                               
+                                    </div>
+                   
+                               </div>
+                   
+                           </div>
+                   
+                       </div>
+                   </section>
+                   
+                                                 
+                  
+                   

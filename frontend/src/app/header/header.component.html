@@ -1,0 +1,194 @@
+<!--front-desk-->
+
+<header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 front-desk mb-4" *ngIf="userType =='FRONTDESK'">
+  <div class="container">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" routerLink="/front-desk-home"><img src="../../../assets/image/logo.svg" alt="" width="110" ></a>
+<button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+  <ul class="navbar-nav ms-auto mb-2 mb-md-0 flex-row">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active' : isActive == 'front-desk-home', 'nav-link':true}" aria-current="page" routerLink="/front-desk-home">home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active' : isActive == 'live-events', 'nav-link':true}" routerLink="/live-events">live events</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active' : isActive == 'dnr-list', 'nav-link':true}" routerLink="/dnr-list">DNR list</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active' : isActive == 'front-desk-myaccount', 'nav-link':true}" routerLink="/front-desk-myaccount">my account</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active' : isActive == 'front-desk-contact', 'nav-link':true}" routerLink="/front-desk-contact">contact us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/notification"><div class="noti">
+          <img src="../../../assets/image/notification.svg" alt=""> <span *ngIf="notificationCount > 0">{{notificationCount}}</span>
+      </div></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  (click)="openSearch()">
+          <img src="../../../assets/image/search2.svg" alt="">
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn" routerLink="add-guest">
+          add guest
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="onLogout()">
+          <img src="../../../assets/image/logout.svg" alt="">
+      </a>
+    </li>
+  </ul>
+  </div>
+</header>
+
+
+
+<!--hotel-owner--> 
+
+<header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 hotel-owner" *ngIf="userType =='HOTEL_OWNER'">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" routerLink="/home"><img src="../../../assets/image/logo.svg" alt="" width="110" ></a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <ul class="navbar-nav ms-auto mb-2 mb-md-0 flex-row" >
+      <li class="nav-item">
+        <div class="search d-flex align-items-center flex-row" (click)="openSearch()">
+          <p class="m-0">Search...</p>
+          <img src="../../../assets/image/search.svg" alt="" class="ms-auto">
+        </div>
+        <!-- <a class="nav-link" href="#">
+            <img src="../../../assets/image/search.svg" alt="">
+        </a> -->
+      </li>
+      <li class="nav-item">
+        <a routerLink="notification" class="nav-link" href="#">
+          <div class="noti" >
+            <img src="../../../assets/image/notification.svg" alt=""> <span *ngIf="notificationCount > 0">{{notificationCount}}</span>
+        </div></a>
+      </li>
+      <li class="nav-item">
+        <a   (click)="onLogout()" title="Logout" class="nav-link" href="#">
+            <img src="../../../assets/image/logout.svg" alt="">
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="my-account">
+          <img src="../../../assets/image/admin.svg" alt=""> My Account <img src="../../../assets/image/arrow-down.svg" alt="">
+        </a>
+      </li>
+    </ul>
+</header>
+
+<div class="container-fluid" >
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" *ngIf="userType =='HOTEL_OWNER'">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a  [ngClass]="{'active' : isActive == 'home', 'nav-link':true}" aria-current="page" routerLink="/home">
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="{'active' : isActive == 'live-events', 'nav-link':true}" aria-current="page" routerLink="/live-events">
+              Live Events
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="{'active' : isActive == 'dnr-list', 'nav-link':true}" aria-current="page" routerLink="/dnr-list">
+              DNR List
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="{'active' : isActive == 'my-hotels', 'nav-link':true}" aria-current="page" routerLink="/my-hotels">
+              My Hotels
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="{'active' : isActive == 'add-guest', 'nav-link':true}" aria-current="page" routerLink="/add-guest">
+              Add Guest
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- <a [ngClass]="{'active' : isActive == 'search-guest', 'nav-link':true}" aria-current="page" routerLink="/search-guest"> -->              
+            <a [ngClass]="{'active' : isActive == 'search-result', 'nav-link':true}" aria-current="page" (click)="openSearch()">
+              Search Guest
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="{'active' : isActive == 'front-desk-manager', 'nav-link':true}" aria-current="page" routerLink="/front-desk-manager">
+              Front Desk Manager
+            </a>
+          </li>
+          <li class="nav-item"> 
+            <a [ngClass]="{'active' : isActive == 'feedback-approvals', 'nav-link':true}" aria-current="page" routerLink="/feedback-approvals">
+              Feedback Approvals
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="{'active' : isActive == 'contact-us', 'nav-link':true}" aria-current="page" routerLink="/contact-us">
+              Contact Us
+            </a>
+          </li> 
+          <li class="nav-item logout">
+            <a class="nav-link" aria-current="page"  (click)="onLogout()">
+              <img src="../../../assets/image/logout-white.svg" alt="">
+              LOGOUT
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 p-0" *ngIf="userType =='HOTEL_OWNER'">
+      <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+
+      <router-outlet></router-outlet>
+      
+    </main>
+    <main class="col-md-12 ms-sm-auto col-lg-12 p-0" *ngIf="userType =='FRONTDESK'">
+      <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+
+      <router-outlet></router-outlet>
+      
+    </main>
+
+  </div>
+</div>
+
+<div id="myOverlay" [ngStyle]="{'display':displayStyleSearch}" class="overlay">
+  <div class="overlay-content">
+    <span class="closebtn"  (click)="closeSearch()" title="Close Overlay">×</span>
+    <form (keyup.enter)="searchGuestLiting()">
+      <img src="../../assets/image/search.svg" alt="">
+      <input type="text" placeholder="Search via DL number or Full Name" name="search"  id="search" autofocus  (keypress)="searchGuest($event)">
+    </form>
+    <ul>
+      <li *ngFor="let row of searchResult" ><a href="/feedback-approvals-detail/{{row._id}}"><img src="../../assets/image/search.svg" alt="">{{row.firstName}} {{row.lastName}}</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+<div  class="modal  error-modal"  tabindex="-1" id="hotelPermission" role="dialog"  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+          <img src="../../../assets/image/error-modal.svg" alt="">
+        <p class="modal-title">{{message}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show" [ngStyle]="{'display':displayStyle}"></div>
+

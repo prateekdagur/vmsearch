@@ -1,0 +1,393 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~dropzone/dist/min/dropzone.min.css';
+
+
+@font-face {
+    font-family: 'regular';
+    src: url('assets/fonts/neurialgrotesk-regular.eot');
+    src: url('assets/fonts/neurialgrotesk-regular.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/neurialgrotesk-regular.woff2') format('woff2'),
+         url('assets/fonts/neurialgrotesk-regular.woff') format('woff'),
+         url('assets/fonts/neurialgrotesk-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bold';
+    src: url('assets/fonts/neurialgrotesk-bold.eot');
+    src: url('assets/fonts/neurialgrotesk-bold.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/neurialgrotesk-bold.woff2') format('woff2'),
+         url('assets/fonts/neurialgrotesk-bold.woff') format('woff'),
+         url('assets/fonts/neurialgrotesk-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'medium';
+    src: url('assets/fonts/neurialgrotesk-medium.eot');
+    src: url('assets/fonts/neurialgrotesk-medium.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/neurialgrotesk-medium.woff2') format('woff2'),
+         url('assets/fonts/neurialgrotesk-medium.woff') format('woff'),
+         url('assets/fonts/neurialgrotesk-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.custom-dropzone {
+    height: 185px;
+    background: transparent !important;
+    border-radius: 16px;
+    border-radius: 15px !important;
+    border-color: #e8eaee !important;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: #FFF8E9 !important;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: 0;
+        right: 0;
+        z-index: 9;
+    }
+    ngx-dropzone-label{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        img {
+            width: 42px;
+            margin: 0 0 12px;
+        }
+        h6 {
+            margin: 0;
+            font-family: 'medium';
+            color: #3b3b3b;
+        }
+        span {
+            color: #b8b8b8;
+            margin: 5px 0 0;
+            display: block;
+            font-size: 13px;
+        }
+    }
+}
+
+
+*{
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'regular';
+    font-size: 14px;
+    background: url(assets/image/home-bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header{
+    background: url(assets/image/home-bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+a,button{
+    outline: none !important;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'bold';
+}
+
+select{
+    background: url(assets/image/arrow-down.svg) #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 96%;
+    background-size: 12px;
+}
+
+.required_star{
+    color: red;
+    font-size: 18px;
+    top:0;
+}
+
+.card{
+    form{
+        .col-lg-6 {
+            box-shadow: none !important;
+            height: auto !important;
+        }
+        .form-group {
+            margin: 0 0 32px;
+            label {
+                color: #fff;
+                font-size: 14px;
+                margin: 0 0 5px;
+            }
+            .form-control {
+                border-radius: 6px;
+                height: 46px;
+                border: none;
+                font-size: 14px;
+                outline: none !important;
+                box-shadow: none !important;
+            }
+        }
+        a.btn {
+            width: 100%;
+            height: 45px;
+            background: #6B6B6B;
+            border-radius: 6px;
+            color: #fff !important;
+            line-height: 32px;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-top: 0;
+            box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+            transition: all 0.3s ease;
+            font-family: 'regular';
+            &:hover {
+                background: #585858;
+            }
+        }
+    }
+}
+
+.modal-footer{
+    span {
+        width: 100%;
+        text-align: center;
+        margin: 30px 0 0;
+        a {
+            color: #E85869;
+            font-family: 'bold';
+        }
+    }
+}
+
+tr{
+    background: #fff;
+}
+
+form{
+    .col-lg-6 {
+        box-shadow: none !important;
+        height: auto !important;
+    }
+    .form-group {
+        margin: 0 0 18px;
+        label {
+            color: #403E4A;
+            font-size: 14px;
+            margin: 0 0 14px;
+            font-family: 'medium';
+        }
+        .form-control {
+            border-radius: 6px;
+            height: 45px;
+            border: none;
+            font-size: 14px;
+            outline: none !important;
+            box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+            font-family: 'medium';
+        }
+    }
+    input[type="submit"].btn,input[type="button"].btn {
+        margin: 0 auto;
+        min-width: 150px;
+        height: 45px;
+        text-transform: uppercase;
+        background: #3E3D53;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        border-radius: 6px;
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+    }
+}
+
+
+
+ngx-intl-tel-input, .iti {
+    width: 100%;
+}
+
+.image-preview {
+    column-gap: 15px;
+    row-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: masonry;
+    margin: 25px 0 0;
+    ngx-dropzone-image-preview{
+        height: 110px !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        img {
+            width: 100%;
+            opacity: 1 !important;
+            height: 100%;
+            object-fit: cover;
+        }
+        ngx-dropzone-remove-badge {
+            opacity: 1 !important;
+            background: #21be34;
+            border-radius: 5px;
+            right: -10px;
+            top: -10px;
+            height: 20px;
+            width: 20px;
+        }
+    }
+    ngx-dropzone-label {
+        position: absolute;
+        padding: 4px 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+        bottom: 0;
+        font-size: 12px;
+        color: #fff;
+        background: rgb(0 0 0 / 29%);
+        border-radius: 0 0 5px 5px;
+    }
+}
+
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+    .navbar-dark .navbar-brand{padding: 8px 0 !important;background: transparent !important;}
+    ul.navbar-nav {margin-right: 80px;margin-bottom: 0 !important;}
+    button.navbar-toggler {right: 20px;z-index: 10;background: #191c24;}
+    section.login .col-lg-6 .login-bg img{width: 100%;}
+    .modal-dialog {margin: 1.5rem;}
+    .modal-footer{width: 95% !important;}
+    .box.approval-detail ul{width: 100% !important;}
+    .box.approval-detail ul li span{width: 55% !important;}
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {  }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+    
+    form{margin-top: 25px;}
+
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {  }
+
+
+
+/****************Pagination****************/
+
+pagination-template{
+    display: flex;    
+    ul.ngx-pagination {
+        padding: 0;
+        margin-left: auto;
+        margin-right: 10px;
+        li.current {
+            width: 38px;
+            height: 38px;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            background:#3e3d53;
+            span{            
+                color: #fff !important;
+            }
+        }
+        li{
+            background: transparent;
+            span {
+                color: #000;
+                background: transparent;
+                font-weight: 600;           
+            }
+            &::before{
+                display: none !important;
+            }
+            &::after{
+                display: none !important;
+            }
+            a::after{
+                display: none !important;
+            }
+            a::before{
+                display: none !important;
+            }
+        }
+    }
+}
+
+.ngx-pagination li.disabled{
+    opacity: 1;
+    span{
+        color: #676767;
+    }
+}
+
+.ngx-pagination li span, .ngx-pagination li a {
+    font-weight: 600 !important;
+    font-size: 15px;
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover{
+    background: transparent !important;
+}
+
+.pwd {
+    position: relative;
+    img {
+        position: absolute;
+        right: 15px;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        width: 20px;
+    }
+}
+
+table.table{
+    td{
+        &:last-child{
+            a{
+                width: auto !important;
+                margin-right: 15px;
+                &:last-child{
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

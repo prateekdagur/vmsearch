@@ -1,0 +1,99 @@
+<div class="container" *ngIf="setvarforForm">
+  <h3>Update Subscription</h3>
+
+  <form
+    [formGroup]="productForm"
+    (ngSubmit)="updateSubscription()"
+    class="dnr-Reason form-group"
+  >
+    <label for="name">Subscription Title:</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      formControlName="title"
+      class="form-control"
+    />
+    <div *ngIf="productForm.get('title').touched && personal['title'].errors">
+      <div *ngIf="personal['title'].errors?.required" class="text-danger" >Title is required</div>
+    </div>
+    <label for="name">Total Month:</label>
+    <input
+      type="text"
+      id="month"
+      name="month"
+      formControlName="month"
+      class="form-control"
+    />
+    <div *ngIf="productForm.get('month').touched && personal['month'].errors">
+      <div *ngIf="personal['month'].errors?.required" class="text-danger" >Month is required</div>
+    </div>
+    <label for="name">Price:</label>
+    <input
+      type="text"
+      id="price"
+      name="price"
+      formControlName="price"
+      class="form-control"
+    />
+    <div *ngIf="productForm.get('price').touched && personal['price'].errors">
+      <div *ngIf="personal['price'].errors?.required" class="text-danger" >Price is required</div>
+    </div>
+    <label for="name">Benefit Title:</label>
+    <input
+      type="text"
+      id="benefit_title"
+      name="benefit_title"
+      formControlName="benefit_title"
+      class="form-control"
+    />
+    <table class="table table-bordered" formArrayName="benefits">
+      <tr>
+        <th colspan="2">Add Multiple Benifits:</th>
+        <th width="150px">
+          <button
+            type="button"
+            (click)="addBenefit()"
+            class="btn btn-primary add-field"
+          >
+            +
+          </button>
+        </th>
+      </tr>
+      <tr
+        *ngFor="let bft of benefits().controls; let i = index"
+        [formGroupName]="i"
+      >
+        <td>
+          <input type="text" formControlName="benefit" class="form-control" />
+        </td>
+
+        <td>
+          <button
+            (click)="removeBenefit(i)"
+            class="btn btn-danger remove-field"
+          >
+            -
+          </button>
+        </td>
+      </tr>
+    </table>
+
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+      <!-- <div class="col-md-6" style="text-align: end">
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="getsubscription()"
+          >
+            Get Subscription List
+          </button>
+        </div> -->
+    </div>
+  </form>
+
+  <br />
+</div>

@@ -1,0 +1,167 @@
+section.home {
+    padding: 0 0 30px;
+}
+
+.home .box {
+    padding: 0 12px;
+}
+
+form .form-group .form-control{
+    border-radius: 0 !important;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+.head{
+    margin: 0 0 15px;
+    padding: 0 12px;
+    h3 {
+        font-size: 20px;
+        text-align: left;
+        font-family: 'medium';
+        margin:0;
+    }
+}
+
+.home .box h4 {
+    color: #403E4A;
+    font-size: 19px;
+    padding: 0 10px;
+}
+
+button.btn[type="submit"] {
+    margin: 25px 15px 20px;
+    height: 45px;
+    width: 120px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: 'medium';
+    background: #3E3D53;
+    color: #fff;
+    margin-left: auto;
+    padding: 0 15px;
+}
+
+section.subscription-status {
+    margin-top: 35px;
+}
+
+section.subscription-status .card {
+    border-color: #ECECEC;
+    border-radius: 6px;
+    padding: 18px;
+    display: inline-block;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+    width: 100%;
+}
+
+section.subscription-status .card h4 {
+    font-size: 16px;
+    font-family: 'medium';
+}
+
+section.subscription-status .card p {
+    margin: 0 0 23px;
+}
+
+section.subscription-status .card p span {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    border-radius: 50px;
+    margin-right: 4px;
+}
+
+section.subscription-status .card p span.red{
+    background: #D92A16;}
+
+section.subscription-status .card p span.green {
+    background: #0ebb23;
+    }
+
+section.subscription-status .card button.btn {
+    background: #3E3D53;
+    height: 45px;
+    color: #fff;
+    font-family: 'medium';
+    font-size: 14px;
+    padding: 0 25px;
+}
+
+.subscription-status .row {
+    row-gap: 25px;
+}
+
+a.change-pass {
+    padding: 0 25px;
+    text-transform: capitalize;
+    font-size: 15px;
+    color: #403E4A;
+    font-family: 'medium';
+}
+
+
+
+
+.error-modal .modal-body {
+    text-align: center;
+    padding: 35px 35px 25px;
+}
+
+.error-modal .modal-body p.modal-title {
+    font-size: 20px;
+    color: #403E4A;
+    margin: 15px auto 0;
+    width: 90%;
+    display: block;
+}
+ .modal-footer {
+    border: none;
+    padding-top: 0 !important;
+    padding: 30px;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.error-modal .modal-footer button {
+    margin: 0 auto;
+    min-width: 118px;
+    height: 45px;
+    text-transform: uppercase;
+    background: #3E3D53;
+    border: none;
+}
+
+.error-modal .modal-footer button.black{
+    background: #000;
+}
+
+.modal-header {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    border: none;
+    color: #fff;
+    line-height: 33px;
+    padding: 0;
+}
+
+.modal-header button {
+    color: #fff !important;
+    box-shadow:none !important;
+    width: auto;
+    opacity: 1;
+    background: transparent;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: normal;
+    height: 24px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 8px;
+}

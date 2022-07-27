@@ -1,0 +1,193 @@
+<section class="home">
+    <div class="container">
+
+        <div class="col-lg-12">   
+
+            <div class="head d-flex align-items-center">
+                <h3>User Details</h3>
+            </div>        
+        </div>
+
+        
+        <div class="col-lg-12">
+
+            <div class="box p-0">
+               
+                <div class="row">
+
+                    <!-- <div class="col-lg-4 col-12">
+                        <div class="box identity">
+                            <span *ngIf="dataArray.user.dlImage">
+                                <img [src]="dataArray.user.dlImage" alt="">
+                            </span>
+                        </div>
+                    </div> -->
+   
+                    <div class="col-lg-8 col-12">
+                        <div class="box approval-detail">    
+                            <ul>
+                                <li>Email <span class="ms-auto">{{ViewUserArray.email}}</span></li>
+                                <li>Contact Number<span class="ms-auto">{{ViewUserArray.phonenumber}}</span></li>
+                                <li>Address<span class="ms-auto">{{ViewUserArray.address}}</span></li>
+                                <li>City<span class="ms-auto">{{ViewUserArray.city}}</span></li>
+                                <li>State<span class="ms-auto">{{ViewUserArray.state}}</span></li>
+                                <li>Zipcode<span class="ms-auto">{{ViewUserArray.zipcode}}</span></li>
+                                <li>Status<span class="ms-auto">{{ViewUserArray.is_approved}}</span></li>
+                                <li>User Type<span class="ms-auto">{{viewUserType}}</span></li>
+                                <li>Date<span class="ms-auto">{{ViewUserArray.date | date: dateFormat}}</span></li>
+                                <!-- <li>Tax File <span class="ms-auto"><a
+                                target="_blank"
+                                *ngIf="ViewUserArray.tax_filename"
+                                [href]="ViewUserArray.tax_filename"
+                                ><img width="100px" [src]="ViewUserArray.tax_filename" /></a
+                              ></span></li> -->
+                               <!-- <li *ngIf= "ViewUserArray.latitude">Latitude<span  class="ms-auto" >{{ViewUserArray.latitude}}</span></li>
+                                <li *ngIf= "ViewUserArray.longitude">Longitude<span   class="ms-auto">{{ViewUserArray.longitude}}</span></li>
+                                <li *ngIf= "!ViewUserArray.latitude">Latitude<span  class="ms-auto" >NA</span></li>
+                                <li *ngIf= "!ViewUserArray.longitude">Longitude<span   class="ms-auto">NA</span></li> -->
+                        
+                            </ul>    
+                        </div>
+                    </div>
+    
+                </div><!--row-->
+            </div>
+
+        </div>
+        <!-- <div class="multi-photo">
+            <h5>Photo</h5>
+            <div class="list">
+                <span *ngFor="ViewUserArray.tax_filename">
+                    <a href="{{ ViewUserArray.tax_filename }}" target="_blank"><img src="{{ ViewUserArray.tax_filename }}" alt=""></a>
+                </span>                                            
+            </div>
+        </div> -->
+
+        <div class="row mt-4">
+            
+            <div class="col-lg-12">
+                <div class="feedback">
+                    <!-- <h3>All Feedback <span>{{dataArray.feedbackCount}}</span></h3> -->
+                    
+                    <div class="inner-box" >
+                        <!-- <h2>{{feedback.hotelData.hotelname}} |  {{feedback.guestDetails.date | date:dateFormat}} 
+                            <button class="ms-auto" *ngIf="feedback.canView"  routerLink="/edit-feedback/{{feedback.guestDetails._id}}"> <img src="../../../assets/image/edit-1.svg" alt=""> Edit</button>
+                        </h2> -->
+                        
+                            <!-- <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="multi-photo"> -->
+                                        
+                    <section class="home">
+                        <div class="container">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <h5>Hotels</h5>
+                               <div class="table-responsive">
+                                   <table class="table">
+                                     <thead>
+                                     <tr>
+                                        <th scope="col">Sr. No.</th>
+                                        <th scope="col">Hotel Name</th>
+                                        <th scope="col">Contact Number</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">ZIP</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr
+                                      *ngFor="
+                                         let row of ViewHotelsArray; let i = index
+                                         "
+                                         >
+                                         <td>
+                                            {{i+1}}
+                                          </td>
+                                          <td>{{ row.hotelname}}</td>
+                                          <td>{{ row.phonenumber}}</td>
+                                          <td>{{ row.email}}</td>
+                                          <td>{{ row.address}}</td>
+                                          <td>{{ row.zipcode}}</td>
+                                          <td>{{ row.is_approved}}</td>
+                                          <td>
+                                            <a routerLink="/admin-hotel-details/{{ row?._id }}"
+                                              ><img src="../../../assets/image/eye-black.svg" alt=""
+                                            /></a>
+                                          </td>
+                                        </tr>
+                                        <!-- <tr *ngIf="!ViewHotelsArray">
+                                            <td>No Record Found</td>
+                                          </tr> -->
+                                        </tbody>
+                                      </table>
+                                      <div *ngIf="ViewHotelsArray.length === 0">
+                                        <td>No Record Found</td>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>       
+
+                                      <!-- <div class="list" *ngFor="
+                                        let hotel of ViewHotelsArray; let i = index" >
+                                            {{hotel.hotelname}}                                   
+                                        </div> -->
+                                  
+
+                          </div>
+                                <!-- <div class="inner-box" >
+
+                                        <br/>
+                                        <section class="home">
+                                            <div class="container">
+                                                <h5>Transactions</h5>
+                                              <div class="col-lg-12 col-sm-12 col-12">
+                                                <div class="table-responsive">
+                                                  <table class="table" *ngIf="ViewTransactionsArray.length > 0">
+                                                    <thead>
+                                                      <tr>
+                                                        <th scope="col">Sr. No.</th>
+                                                        <th scope="col">Transaction Id</th>
+                                                        <th scope="col">Amount Paid</th>
+                                                        <th scope="col">Date</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr
+                                                        *ngFor="
+                                                          let row of ViewTransactionsArray; let i = index
+                                                        "
+                                                      >
+                                                      <td>
+                                                        {{i+1}}
+                                                      </td>
+                                                      <td>{{ row.transationId }}</td>
+                                                      <td>
+                                                          ${{ row.amountPaid }}
+                                                        </td>
+                                                        <td>{{ row.date | date: dateFormat  }}</td>
+                                                    </tr>
+                                                     </tbody>
+                                                  </table>
+                                                  <div *ngIf="ViewTransactionsArray.length === 0">
+                                                    <td>No Record Found</td>
+                                                  </div>
+                                                
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </section>
+                                     
+                                        </div> -->
+                                    </div>
+                   
+                               </div>
+                   
+                           </div>
+                   
+                       </div>
+                   </section>
+                   
+                  

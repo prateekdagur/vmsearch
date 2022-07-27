@@ -1,0 +1,87 @@
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Amount Paid</th>
+      <th scope="col">Date</th>
+      <th scope="col">Transaction Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let data of transactionData
+          | paginate
+            : { itemsPerPage: 8, currentPage: p, totalItems: totalItem };
+        let i = index
+      "
+    >
+      <td>
+        {{ i + 1 }}
+      </td>
+      <td>
+       ${{ data.amountPaid }}
+      </td>
+      <td>{{ data.date }}</td>
+      <td>{{ data.transationId }}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="transactionData > 0">
+  <pagination-controls
+    (pageChange)="pageChangeEvent($event)"
+  ></pagination-controls>
+</div>
+<div *ngIf="transactionData.length === 0">No Transaction Record Found.</div> -->
+
+
+<section class="home">
+  <div class="container">
+    <div class="col-lg-12 col-sm-12 col-12">
+    <div class="head">
+      <h3>Transaction List</h3>
+    </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sr. No.</th>
+              <th scope="col">Transaction Id</th>
+              <th scope="col">Amount Paid</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let row of transactionData
+                  | paginate
+                    : {
+                        itemsPerPage: itemsperPage,
+                        currentPage: p, totalItems: totalItem
+                      }; let i = index
+              "
+            >
+            <td>
+              {{(this.itemsperPage*(this.p-1)+(i+1))}}
+            </td>
+            <td>{{ row.transationId }}</td>
+            <td>
+                ${{ row.amountPaid }}
+              </td>
+              <td>{{ row.date | date: dateFormat  }}</td>
+          </tr>
+            <tr *ngIf="transactionData.length === 0">
+              <td>No Record Found</td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls
+          *ngIf="transactionData"
+          (pageChange)="pageChangeEvent($event)"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</section>
+

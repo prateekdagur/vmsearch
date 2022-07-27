@@ -1,0 +1,55 @@
+.add-field {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.remove-field {
+    background-color: #bb2d3b !important;
+    border-color: #bb2d3b !important;
+}
+.table > :not(:first-child) {
+    border: none;
+}
+
+.table-bordered > :not(caption) > * {
+    border-width: 0.1px 0;
+    color: #ccc;
+}
+
+th {
+    color: #000 !important;
+}
+
+
+
+th, td {
+    width: 100%;
+}
+
+.form-group label {
+    color: #403E4A;
+    font-size: 14px;
+    margin: 0 0 5px;
+    font-family: "medium";
+}
+
+.list-btn {
+    text-align: right;
+}
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
+
+
+.dnr-Reason label {
+    padding-top: 15px;
+}
+
+.dnr-Reason tr {
+    display: block;
+    margin-top: 10px;
+}

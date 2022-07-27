@@ -1,0 +1,83 @@
+<section class="home">
+    <div class="container">
+
+        <div class="col-lg-12 col-sm-12 col-12">
+        
+            <div class="head d-flex align-items-center">
+                <h3>Front Desk Manager</h3>
+                <div class="ms-auto">
+                    <ol class="d-flex align-items-center">
+                        <li>
+                          <a routerLink="/add-front-desk-manager"><img src="../../../assets/image/add-guest.svg" alt="">Add Front Desk</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+        <div class="table-responsive">
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">name</th>
+                <th scope="col">hotel name</th>
+                <th scope="col">hotel address</th>
+                <th scope="col">position</th>
+                <th scope="col">employee since</th>
+                <th scope="col">details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let row of frontDeskList.data">
+                    <td><a href="#" routerLink="/edit-front-desk-manager/{{row.infoUser._id}}">{{row.infoUser.frontDeskFullName}}</a><span>{{row.infoUser.date | date:dateFormat }}</span></td>
+                    <td>{{row.infoUser.hotelname}}</td>
+                    <td>{{row.infoUser.address}}</td>
+                    <td>{{row.infoUser.frontDeskPosition}}</td>
+                    <td>{{row.infoUser.frontDeskEmpSince}}</td>
+                    <td><a href="#" routerLink="/edit-front-desk-manager/{{row.infoUser._id}}"><img src="../../../assets/image/edit.svg" alt=""></a>
+                        <a data-bs-toggle="modal" (click)="setFrontDeskId(row.infoUser._id)" data-bs-target="#deleteModal"><img src="../../../assets/image/delete.svg" alt=""></a></td>
+                    
+                </tr> 
+                <tr *ngIf="!frontDeskList.data"><td>No Record Found</td></tr>                   
+            </tbody>
+        </table>
+        </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade error-modal" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!--  -->
+        <div class="modal-body">
+            <img src="../../../assets/image/cross-modal.svg" alt="">
+          <p class="modal-title">Are you sure you want delete this front desk manager?</p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary black" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="deleteFrontdesk()" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div  class="modal  error-modal"  tabindex="-1" id="" role="dialog"  [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+            <img [src]="modalimage" alt="">
+          <p class="modal-title">{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" [ngStyle]="{'display':displayStyle}"></div>

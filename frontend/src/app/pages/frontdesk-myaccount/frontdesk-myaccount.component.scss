@@ -1,0 +1,88 @@
+.account-tab-section .tab-content {flex: 1;}
+.account-tab-section .nav-pills .nav-link.active, 
+.account-tab-section .nav-pills .show > .nav-link {background-color: #3E3D53;color: #fff;}
+.account-tab-section .nav-pills .nav-link {text-align: left;}
+.account-tab-section .nav-pills .nav-link {color: #000000;font-weight: 600;text-decoration: underline;margin-bottom: 5px;}
+.account-tab-section input.btn.block {min-width: 100%;}
+.my-account-tab h3 {font-size: 25px;padding-bottom: 15px;}
+
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+.error-modal .modal-body {
+    text-align: center;
+    padding: 35px 35px 25px;
+}
+
+.error-modal .modal-body p.modal-title {
+    font-size: 20px;
+    color: #403E4A;
+    margin: 15px auto 0;
+    width: 90%;
+    display: block;
+}
+ .modal-footer {
+    border: none;
+    padding-top: 0 !important;
+    padding: 30px;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.error-modal .modal-footer button {
+    margin: 0 auto;
+    min-width: 118px;
+    height: 45px;
+    text-transform: uppercase;
+    background: #3E3D53;
+    border: none;
+}
+
+.error-modal .modal-footer button.black{
+    background: #000;
+}
+
+.modal-header {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    border: none;
+    color: #fff;
+    line-height: 33px;
+    padding: 0;
+}
+
+.modal-header button {
+    color: #fff !important;
+    box-shadow:none !important;
+    width: auto;
+    opacity: 1;
+    background: transparent;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: normal;
+    height: 24px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 767px) {
+    .account-tab-section .nav-pills .nav-link {text-align: center;}
+    .account-tab-section {flex-direction: column;}
+    .account-tab-section .nav-pills {width: 100%;text-align: center;}
+    .my-account-tab form {margin-top: 20px;}
+}
+
+@media screen and (max-width: 992px) {
+    .my-account-tab form {margin-top: 0px;}
+}
+
+@media screen and (max-width: 1400px) {
+    .my-account-tab h3 {font-size: 20px;}
+}

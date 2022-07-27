@@ -1,0 +1,107 @@
+<section class="home">
+    <div class="container">
+
+        <div class="col-lg-12 col-12">   
+
+            <div class="head d-flex align-items-center">
+                <h3>Add Front Desk</h3>
+            </div>
+
+        <div class="row">
+            <div class="col-lg-9 col-12">
+                <form  [formGroup]="formDetails" id="msform" (ngSubmit)="submit()" #f="ngForm">
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="form-group">
+                                <label>Hotel Name<sup class="required_star">*</sup></label>
+                                <select formControlName="frontDeskHotelId" id="hotel" class="form-control">
+                                    <option value="">Select Hotel</option>
+                                    <option *ngFor="let row of hotels" value="{{row._id}}">{{row.hotelname}}</option>
+                                </select>
+                                <div *ngIf="formDetails.get('frontDeskHotelId').invalid && formSubmitAttempt">
+                                    <div class="text-danger" >Hotel Name is invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="form-group">
+                                <label>Full Name<sup class="required_star">*</sup></label>
+                                <input type="text" formControlName="frontDeskFullName" maxlength="20" autocomplete="new-password" class="form-control">
+                                <div *ngIf="formDetails.get('frontDeskFullName').invalid && formSubmitAttempt">
+                                    <div class="text-danger" >Full Name is invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="form-group">
+                                <label>Position<sup class="required_star">*</sup></label>
+                                <input type="text" formControlName="frontDeskPosition"  class="form-control">
+                                <div *ngIf="formDetails.get('frontDeskPosition').invalid && formSubmitAttempt">
+                                    <div class="text-danger" >Position is invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="form-group">
+                                <label>Employee since<sup class="required_star">*</sup></label>
+                                <input type="text" formControlName="frontDeskEmpSince"  class="form-control">
+                                <div *ngIf="formDetails.get('frontDeskEmpSince').invalid && formSubmitAttempt">
+                                    <div class="text-danger" >Employee since is invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="form-group">
+                                <label>Username<sup class="required_star">*</sup></label>
+                                <input type="text" formControlName="frontDeskUserName" autocomplete="new-password" class="form-control">
+                                <div *ngIf="formDetails.get('frontDeskUserName').invalid && formDetails.get('frontDeskUserName').touched">
+                                    <div *ngIf="getInput.frontDeskUserName.errors?.required" class="text-danger" >Username is required</div>
+                                    <div *ngIf="getInput.frontDeskUserName.errors?.pattern" class="text-danger">Username only contains alphanumeric characters, underscore and dot.</div> 
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="form-group">
+                                <label>Set Password<sup class="required_star">*</sup></label>
+                                <div class="pwd">
+                                    <input [type]="passwordType" formControlName="password" #password  placeholder="Enter Password" class="form-control">
+                                    <img src="../../../assets/image/eye.svg" [ngStyle]="{'display':dispalyPasswordTypeEye}" (click)="changePasswordType()" alt="">                          
+                                    <img src="../../../assets/image/eye-close.svg" [ngStyle]="{'display':dispalyPasswordTypeEyeClose}" (click)="ResetChangePasswordType()" alt="">
+                                  </div>
+                                  <div *ngIf="formDetails.get('password').invalid && formDetails.get('password').touched">
+                                    <div *ngIf="getInput.password.errors?.required" class="text-danger" >Password is required</div>
+                                    <div *ngIf="getInput.password.errors?.pattern" class="text-danger">Minimum six characters, at least one uppercase letter, one lowercase letter, one special character and one number</div> 
+                                  </div>
+                            </div>
+                        </div>
+
+                    </div><!--row-->
+
+                    <div class="col-lg-12 mt-3">
+                        <input type="submit"   class="btn" value="Save">
+                    </div>
+
+                </form>
+            </div>
+        </div><!--row-->
+
+        </div>
+
+    </div>
+</section>
+<div  class="modal  error-modal"  tabindex="-1" id="" role="dialog"  [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+            <img [src]="modalimage" alt="">
+          <p class="modal-title">{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" [ngStyle]="{'display':displayStyle}"></div>

@@ -1,0 +1,66 @@
+<section class="query front-desk-query">
+    <div class="container">
+
+        <div class="col-lg-5 mx-auto">
+            <div class="content">
+                <div class="query-info text-center">
+                    <h3>Have ANy Query?</h3>
+                    <p>Please let us know</p>
+                </div>
+
+                <div class="box">
+                    <form [formGroup]="contactForm">
+                        <div class="row">
+                            <div class="col-lg-12 col-12">
+                              <div class="form-group">
+                                  <label>Heading</label>
+                                  <input type="text" formControlName="heading" class="form-control" placeholder="Enter Heading...">
+                                  <div *ngIf="contactForm.get('heading').invalid && formSubmitAttempt">
+                                    <div *ngIf="getInput.heading.errors?.required" class="text-danger" >Heading is required</div>                                      
+                                  </div> 
+                              </div>
+                            </div>
+
+                            <div class="col-lg-12 col-12">
+                              <div class="form-group">
+                                  <label>Message</label>
+                                  <textarea placeholder="Enter Message..." formControlName="message" class="form-control query-info-msg" id="exampleFormControlTextarea1" rows="7"></textarea>
+                                  <div *ngIf="contactForm.get('message').invalid && formSubmitAttempt">
+                                    <div *ngIf="getInput.message.errors?.required" class="text-danger" >Message is required</div>                                      
+                                  </div>
+                              </div>
+                            </div>     
+
+                            <div class="col-lg-12 col-12">
+                                    <div class="form-group">
+                                    <input type="submit" (click)="submit()" class="btn block" value="Submit">
+                                </div>
+                            </div>
+                          </div><!--row-->
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div  class="modal  error-modal"  tabindex="-1" id="hotelPermission" role="dialog"  [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+            <img src="../../../assets/image/check-modal.svg" alt="">
+          <p class="modal-title">{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closePopup()">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" [ngStyle]="{'display':displayStyle}"></div>
+  <ngx-spinner size="medium"  type = "timer">
+    <p style="color: white" ></p>
+  </ngx-spinner>

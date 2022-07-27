@@ -1,0 +1,541 @@
+@font-face {
+	font-family: 'NeurialGroteskLight';
+	src: url('../fonts/NeurialGroteskLight.eot');
+	src: url('../fonts/NeurialGroteskLight.eot') format('embedded-opentype'),
+		url('../fonts/NeurialGroteskLight.woff2') format('woff2'),
+		url('../fonts/NeurialGroteskLight.woff') format('woff'),
+		url('../fonts/NeurialGroteskLight.ttf') format('truetype'),
+		url('../fonts/NeurialGroteskLight.svg#NeurialGroteskLight') format('svg');
+}
+
+
+@font-face {
+	font-family: 'NeurialGroteskRegular';
+	src: url('../fonts/NeurialGroteskRegular.eot');
+	src: url('../fonts/NeurialGroteskRegular.eot') format('embedded-opentype'),
+		url('../fonts/NeurialGroteskRegular.woff2') format('woff2'),
+		url('../fonts/NeurialGroteskRegular.woff') format('woff'),
+		url('../fonts/NeurialGroteskRegular.ttf') format('truetype'),
+		url('../fonts/NeurialGroteskRegular.svg#NeurialGroteskRegular') format('svg');
+}
+
+@font-face {
+	font-family: 'NeurialGroteskBold';
+	src: url('../fonts/NeurialGroteskBold.eot');
+	src: url('../fonts/NeurialGroteskBold.eot') format('embedded-opentype'),
+		url('../fonts/NeurialGroteskBold.woff2') format('woff2'),
+		url('../fonts/NeurialGroteskBold.woff') format('woff'),
+		url('../fonts/NeurialGroteskBold.ttf') format('truetype'),
+		url('../fonts/NeurialGroteskBold.svg#NeurialGroteskBold') format('svg');
+}
+
+@font-face {
+	font-family: 'NeurialGroteskExtrabold';
+	src: url('../fonts/NeurialGroteskExtrabold.eot');
+	src: url('../fonts/NeurialGroteskExtrabold.eot') format('embedded-opentype'),
+		url('../fonts/NeurialGroteskExtrabold.woff2') format('woff2'),
+		url('../fonts/NeurialGroteskExtrabold.woff') format('woff'),
+		url('../fonts/NeurialGroteskExtrabold.ttf') format('truetype'),
+		url('../fonts/NeurialGroteskExtrabold.svg#NeurialGroteskExtrabold') format('svg');
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("../images/icons/toggle.svg");
+}
+
+.navbar-toggler {
+    padding: 0px;
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.features-section img {
+	height: 100% !important;
+	object-fit: cover;
+}
+
+
+h2 {
+	font-weight: 600;
+	font-size: 27px;
+	font-family: 'NeurialGroteskBold';
+	color: #000000;
+}
+
+h4 {
+	font-size: 43px;
+	font-weight: 700;
+	font-family: 'NeurialGroteskBold';
+}
+
+body {
+	font-family: 'NeurialGroteskRegular';
+}
+
+.main-head .dropdown-menu li {
+	padding-left: 0px;
+}
+
+.main-head .dropdown-menu li .btn {
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+	padding: 10px;
+}
+
+.main-head .dropdown-menu.show {
+	background: #000;
+	padding: 10px;
+	border-radius: 0;
+}
+
+.main-head .dropdown-menu li:first-child {
+	padding-bottom: 10px;
+}
+
+.main-head .dropdown-menu[data-bs-popper] {
+	right: 0 !important;
+	left: inherit !important;
+	padding: 15px;
+	min-width: 209px;
+}
+
+#navbarDropdown::after {
+	display: none;
+}
+
+#navbarDropdown {
+	border: 1px solid #000;
+	border-radius: 4px;
+	padding: 6px 14px;
+	font-weight: 600;
+	margin: 0px;
+	color: #000;
+}
+
+.navbar {
+	padding-top: 12px;
+}
+
+.navbar-nav li a {
+	font-weight: 600;
+}
+
+.navbar-nav li {
+	padding-left: 18px;
+}
+
+.navbar-nav li {
+	padding-left: 18px;
+}
+
+.main-banner {
+	padding-top: 50px;
+}
+
+.main-banner h1 {
+	font-size: 35px;
+	font-family: 'NeurialGroteskBold';
+
+	margin-bottom: 0px;
+	color: #000000;
+}
+
+.main-banner h2 {
+	font-size: 35px;
+	font-weight: 500;
+	padding-bottom: 4px;
+	font-family: 'NeurialGroteskRegular';
+}
+
+.main-banner p {
+	font-size: 14px;
+	font-weight: 600;
+	color: #403E4A;
+	width: 56%;
+	margin: 0 auto;
+	line-height: 1.7;
+}
+
+.main-head {
+	background-image: url("../images/banner-bg.jpg");
+	background-repeat: no-repeat;
+}
+
+.content {
+	background: #F4F8FA;
+	padding: 40px 35px;
+	border: 1px solid #70707026;
+}
+
+.content p {
+	font-size: 16px;
+	color: #7E7E7E;
+	line-height: 2;
+}
+
+.video-section h3 {
+	font-family: 'NeurialGroteskBold';
+	background: #fff;
+	font-size: 20px;
+	font-weight: 800;
+	padding: 19px 15px;
+	box-shadow: 0px 0px 30px 0px rgb(34 34 34 / 19%);
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+}
+
+.benefits-section {
+	padding-top: 30px;
+}
+
+.benefits-content {
+	margin: 0 auto;
+	width: 64%;
+}
+
+.benefits-section p {
+	color: #7E7E7E;
+	font-size: 16px;
+}
+
+.benefits-content-area h5 {
+	color: #000000;
+	font-weight: bold;
+	padding-top: 20px;
+}
+
+.benefits-content-area p {
+	font-size: 14px;
+	color: #12161a87;
+	line-height: 1.7;
+}
+
+
+.record-info-section {
+	background: #fff;
+	box-shadow: 0px 0px 30px 0px rgb(34 34 34 / 19%);
+	padding: 50px 0 40px !important;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+.benefits-content-area p {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.valuable-guest-reviews-section,
+.multi-hotel-section {
+	margin-top: 70px;
+}
+
+.pricing-section {
+	padding-top: 40px;
+}
+
+.choose-plan-area {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.choose-plan-btn {
+	background: #3E3D53;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: 'NeurialGroteskRegular';
+	border-radius: 0;
+	font-size: 14px;
+	padding: 16px 35px;
+	border: 1px solid #3e3d53;
+}
+.choose-plan-btn:hover {
+    background: transparent;
+    border: 1px solid #3e3d53;
+    color: #3E3D53;
+}
+
+.choose-plan-area h1 {
+	font-weight: 800;
+	font-family: 'NeurialGroteskBold';
+	font-size: 50px;
+	color: #000;
+}
+
+.choose-plan-area p {
+	margin-bottom: 0px;
+	font-weight: 500;
+	font-size: 22px;
+}
+
+.choose-plan-price ul {
+	list-style: none;
+	padding-left: 0px;
+	line-height: 2.2;
+}
+
+.choose-plan-price ul li {
+	font-size: 17px;
+	color: #000000;
+	font-weight: 600;
+	line-height: 2.7;
+}
+
+.pricing-content p {
+	padding-bottom: 12px;
+}
+
+
+.footer {
+	padding: 50px 0 30px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f5eef5+0,f5f9fb+100 */
+	background: #f5eef5;
+	/* Old browsers */
+	background: -moz-linear-gradient(top, #f5eef5 0%, #f5f9fb 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #f5eef5 0%, #f5f9fb 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #f5eef5 0%, #f5f9fb 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5eef5', endColorstr='#f5f9fb', GradientType=0);
+	/* IE6-9 */
+}
+
+
+.footer-logo {
+	text-align: center !important;
+	border-bottom: 1px solid #DAD8DC;
+	padding-bottom: 25px;
+}
+
+
+.footer-links ul {
+	display: inline-flex;
+	list-style: none;
+	margin-bottom: 0px;
+}
+
+.footer-links ul li {
+	padding-left: 30px;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 11px;
+	border-left: 1px solid #E8E8E8;
+	padding-right: 30px;
+}
+.footer-links ul li a {
+	color: #000;
+	text-decoration: none;
+}
+
+.footer-links ul li:first-child {
+	padding-left: 0;
+	border-left: 0;
+}
+
+.footer-links {
+	text-align: center;
+	border: 1px solid #EFEFEF;
+	padding: 14px 0;
+	font-weight: 600;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.envelope ul {
+	padding-left: 20px;
+	list-style: none;
+	border-left: 1px solid #7070707d;
+	margin-left: 20px;
+	margin-bottom: 0px;
+}
+
+.envelope ul li {
+	font-size: 12px;
+	color: #000000;
+}
+
+.envelope ul li:first-child {
+	text-transform: uppercase;
+}
+.email-info {
+	display: flex;
+	align-items: center;
+	padding: 30px 0;
+	justify-content: center;
+}
+.email-info ul li a {
+    color: #000000;
+	text-decoration: none;
+}
+.content-section p {
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 14px;
+	color: #747474;
+	line-height: 23px;
+	padding-bottom: 20px;
+}
+
+
+.pricing-plan-area {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e8e3ee+0,e7f3f6+56 */
+	background: #e8e3ee;
+	/* Old browsers */
+	background: -moz-linear-gradient(top, #e8e3ee 0%, #e7f3f6 56%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #e8e3ee 0%, #e7f3f6 56%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #e8e3ee 0%, #e7f3f6 56%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e3ee', endColorstr='#e7f3f6', GradientType=0);
+	/* IE6-9 */
+	padding: 40px 30px;
+}
+
+
+.bottom-bar {
+	background: #3e3d53;
+	padding: 16px 0;
+	font-size: 12px;
+	color: #fff;
+}
+
+.bottom-bar .links {
+	padding-bottom: 0px;
+	text-align: right;
+}
+
+.bottom-bar .links ul {
+	list-style: none;
+	margin-bottom: 0px;
+}
+
+.bottom-bar .links ul li {
+	display: inline-flex;
+	padding-left: 20px;
+	font-weight: 400;
+}
+
+.bottom-bar .links ul li a {
+   color: #fff;
+   text-decoration: none;
+}
+
+.bottom-bar p {
+	margin-bottom: 0px;
+}
+
+.bottom-bar .links ul li:first-child {
+	border-right: 1px solid #fff;
+	padding-right: 25px;
+}
+
+
+.benefits-section {
+	padding: 30px 0 20px;
+	background: url(../images/benefits-bg.png);
+	background-repeat: no-repeat;
+}
+
+.pricing-section .pricing-content h4 {
+	font-size: 35px;
+}
+
+.pricing-section .pricing-content h4 span {
+	font-weight: 400;
+	font-family: 'NeurialGroteskRegular';
+}
+
+
+.front-desk-btn {
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+}
+
+.front-desk-btn:hover,
+.front-desk-btn.active,
+.front-desk-btn:focus {
+	color: #fff !important;
+	border: 1px solid #fff !important;
+	border-radius: 5px !important;
+	background: none;
+}
+
+
+.hotel-owner-btn {
+	color: #000;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.hotel-owner-btn:hover,
+.hotel-owner-btn.active,
+.hotel-owner-btn:focus {
+	color: #000;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.register-now-btn {
+	color: #fff;
+	font-family: 'NeurialGroteskLight';
+	text-align: center;
+	font-size: 14px;
+	text-decoration: underline;
+}
+
+.register-now-btn:hover {
+	color: #fff;
+	background: none !important;
+}
+
+.live-events-section {
+	text-align: right;
+}
+
+.price-content p {
+	font-size: 18px;
+	padding: 10px 0;
+}
+
+.divider {
+	text-align: center;
+	color: #fff;
+	position: relative;
+	padding: 14px 0 8px;
+	font-size: 12px;
+}
+
+.divider:before {
+	width: 24px;
+	height: 1px;
+	background: #fff;
+	content: "";
+	position: absolute;
+	top: 62%;
+	left: 0;
+	transform: translate(46px, -40%);
+}
+
+
+.divider:after {
+	width: 24px;
+	height: 1px;
+	background: #fff;
+	content: "";
+	position: absolute;
+	top: 62%;
+	right: 0;
+	transform: translate(-48px, -40%);
+}

@@ -1,0 +1,109 @@
+
+
+
+
+
+
+
+<section class="home">
+  <div class="container-fluid" *ngIf="setvarforForm">
+
+      <div class="col-lg-12 col-12">   
+
+          <div class="head d-flex align-items-center">
+              <h3>Add Subscription</h3>
+          </div>
+
+      <div class="row">
+          <div class="col-lg-6 col-12">
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="dnr-Reason form-group">
+                  <fieldset>
+                            <div class="form-group">
+                              <label for="name">Subscription Title:</label>
+                            <input
+                              type="text"
+                              id="title"
+                              name="title"
+                              formControlName="title"
+                              class="form-control"
+                            />
+                            <div *ngIf="productForm.get('title').touched && personal['title'].errors">
+                              <div *ngIf="personal['title'].errors?.required" class="text-danger" >Subscription title is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="name">Total Month:</label>
+                            <input
+                              type="text"
+                              id="month"
+                              name="month"
+                              formControlName="month"
+                              class="form-control"
+                            />
+                            <div *ngIf="productForm.get('month').touched && personal['month'].errors">
+                              <div *ngIf="personal['month'].errors?.required" class="text-danger" >Month is required</div>
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            <label for="name">Price:</label>
+                            <input
+                              type="text"
+                              id="price"
+                              name="price"
+                              formControlName="price"
+                              class="form-control"
+                            />
+                            <div *ngIf="productForm.get('price').touched && personal['price'].errors">
+                              <div *ngIf="personal['price'].errors?.required" class="text-danger" >Price is required</div>
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            <label for="name">Benefit Title:</label>
+                            <input
+                              type="text"
+                              id="benefit_title"
+                              name="benefit_title"
+                              formControlName="benefit_title"
+                              class="form-control"
+                            />
+                            <div *ngIf="productForm.get('benefit_title').touched && personal['benefit_title'].errors">
+                              <div *ngIf="personal['benefit_title'].errors?.required" class="text-danger" >Benefit title is required</div>
+                            </div>
+                            </div>
+
+                            <div class="form-group" formArrayName="benefits">
+                              <label class="d-flex align-items-center">Add Multiple Benifits:
+                                <button
+                                type="button"
+                                (click)="addBenefit()"
+                                class="btn btn-primary add-field ms-auto" style="border-radius: 6px;height: 45px;">Add More +</button>
+                              </label>
+
+                              <div class="mt-4 d-flex align-items-center" *ngFor="let bft of benefits().controls; let i = index"
+                              [formGroupName]="i">                                
+                                <input type="text" formControlName="benefit" class="form-control mr-3" />
+                                <button
+                                    (click)="removeBenefit(i)"
+                                    class="btn btn-danger remove-field ms-3" style="border-radius: 6px;height: 45px;">Delete</button>
+                              </div>
+                            </div>
+
+                  <div class="col-lg-12">
+        <input value="Submit"
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!productForm.valid"/>
+        </div>
+              </fieldset>
+              </form>
+              
+          </div>
+      </div><!--row-->
+
+      </div>
+
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<section class="subscription">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-12">
+                <div class="content">
+                    <span>Choose Your Subscription</span>
+                    <h2>Let's get<br>started</h2>
+                    <p>It is a long established fact that a
+                        reader will be distracted by the readable
+                        content of a page.</p>
+                </div>
+            </div>
+    
+            <div class="col-lg-8 col-12">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12" *ngFor="let plan of data.subscriptionList">
+                        <div class="card">
+                            <span>{{plan.title}}</span>
+                            <h2><sup>$</sup>{{plan.price}}</h2>
+                            <p>Below are the list of benifits</p>
+                            <ol>
+                                <li *ngFor="let row of plan.benefits"><img src="../../../assets/image/check-red.svg" alt=""> {{row}}</li>
+                            </ol>
+
+                            <button type="submit" (click)="submit(plan)" class="btn" routerLink="/subscription-payment">Buy Now</button>
+                        </div>
+                    </div>
+
+                </div><!--row-->
+            </div>
+    
+        </div><!--row-->
+
+        <section class="footer">
+            <p>In case you have any queries <a routerLink="/contact-us">Contact Us</a></p>
+        </section>
+
+    </div>
+</section>
